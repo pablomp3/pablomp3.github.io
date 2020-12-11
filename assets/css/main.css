@@ -59,6 +59,12 @@ mark {
 	color:rgb(251, 241, 44);/* inherit; */
 }
 
+mark_2 {
+	background-color: transparent;
+	color:rgb(102, 14, 70);/* inherit; */
+	font-weight: 600;
+}
+
 input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
