@@ -1,0 +1,38 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# IDE and editor settings
+.idea/
+.vscode/
+
+# Private personal files & CVs
+/linkedin/
+/cv/
+timeline_*.md
+*.docx
+*.doc
+
+# Unpublished pages & drafts
+src/pages/posts.astro
+src/data/posts.json
+src/pages/drafts/
+drafts/

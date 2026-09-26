@@ -1,0 +1,494 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import certsData from '../data/certificates.json';
+import timeline from '../data/timeline.json';
+
+const { gcp, deepLearning } = certsData;
+---
+
+<Layout title="CV | Pablo">
+	<h1 class="mb-8">CV</h1>
+	
+	<div class="mb-8" style="font-size: 1.05rem; max-width: 600px;">
+		<p class="mb-4">
+			I am happy to share my CV upon request! Please reach out via:
+		</p>
+		
+		<div class="flex flex-wrap gap-4 mt-8 font-mono text-sm">
+			<a href="mailto:pabloldieguez@gmail.com" class="list-item" style="padding: 0.65rem 1.25rem; text-decoration: none;">
+				-> Email me
+			</a>
+			<a href="https://www.linkedin.com/in/pablomp3/" target="_blank" rel="noopener noreferrer" class="list-item" style="padding: 0.65rem 1.25rem; text-decoration: none;">
+				-> Message on LinkedIn
+			</a>
+		</div>
+	</div>
+
+	<h2 class="mb-8 mt-8">Timeline</h2>
+
+	<div class="timeline-container">
+		{timeline.map(item => (
+			<div class="timeline-item">
+				<div class="timeline-dot"></div>
+				<h3 class="timeline-title">
+					{item.years && <span class="timeline-years">{item.years}</span>}
+					<span class="timeline-org">{item.org}</span>
+					{item.location && <span class="timeline-loc">{item.location}</span>}
+				</h3>
+				<ul class="timeline-list">
+					{item.highlights.map(hl => (
+						<li set:html={hl} />
+					))}
+				</ul>
+
+				{item.specialSection === 'gcp-certs' && (
+					<details class="cv-cert-details">
+						<summary>
+							<span class="cert-summary-left">
+								<span class="cert-arrow">▸</span>
+								<span class="cert-title">{gcp.title}</span>
+							</span>
+							<span class="cert-tag">{gcp.tag}</span>
+						</summary>
+						<div class="cv-cert-body">
+							<div class="cert-grid">
+								{gcp.courses.map(cert => (
+									<div class="cv-cert-card" onclick={`window.openLightbox('/assets/cv/certificates/${cert.img}')`}>
+										<div class="cv-cert-img-box">
+											<img src={`/assets/cv/certificates/${cert.img}`} alt={cert.name} loading="lazy" />
+										</div>
+										<div class="cv-cert-meta">
+											<h5>{cert.name}</h5>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</details>
+				)}
+
+				{item.specialSection === 'dl-certs' && (
+					<details class="cv-cert-details">
+						<summary>
+							<span class="cert-summary-left">
+								<span class="cert-arrow">▸</span>
+								<span class="cert-title">{deepLearning.title}</span>
+							</span>
+							<span class="cert-tag">{deepLearning.tag}</span>
+						</summary>
+						<div class="cv-cert-body">
+							<div class="cv-spec-spotlight" onclick={`window.openLightbox('/assets/cv/certificates/${deepLearning.spotlight.img}')`}>
+								<div class="cv-spec-thumb">
+									<img src={`/assets/cv/certificates/${deepLearning.spotlight.img}`} alt={deepLearning.spotlight.alt} loading="lazy" />
+								</div>
+								<div class="cv-spec-info">
+									<span class="font-mono text-xs text-muted">{deepLearning.spotlight.label}</span>
+								</div>
+							</div>
+
+							<div class="spec-courses-tree">
+								<div class="tree-header font-mono text-xs text-muted">
+									<span>{deepLearning.treeHeader}</span>
+								</div>
+								<div class="cert-grid">
+									{deepLearning.courses.map(cert => (
+										<div class="cv-cert-card" onclick={`window.openLightbox('/assets/cv/certificates/${cert.img}')`}>
+											<div class="cv-cert-img-box">
+												<img src={`/assets/cv/certificates/${cert.img}`} alt={cert.name} loading="lazy" />
+											</div>
+											<div class="cv-cert-meta">
+												<h5>{cert.name}</h5>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
+					</details>
+				)}
+
+				{item.images && item.images.map(img => (
+					<img src={img.src} alt={img.alt} style="width: 100%; max-width: 450px; border-radius: 8px; margin-top: 1rem;" />
+				))}
+			</div>
+		))}
+	</div>
+
+	<!-- Lightbox Modal -->
+	<div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s ease;">
+		<img id="lightbox-img" src="" style="max-width: 70%; max-height: 75vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+	</div>
+
+	<script is:inline>
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = document.getElementById('lightbox-img');
+
+		window.openLightbox = function(src) {
+			lightboxImg.src = src;
+			lightbox.style.display = 'flex';
+			setTimeout(() => {
+				lightbox.style.opacity = '1';
+			}, 10);
+		};
+
+		if (lightbox) {
+			lightbox.addEventListener('click', function() {
+				lightbox.style.opacity = '0';
+				setTimeout(() => {
+					lightbox.style.display = 'none';
+				}, 300);
+			});
+		}
+	</script>
+</Layout>
+
+<style>
+	.timeline-container {
+		border-left: 2px solid var(--border-color);
+		margin-left: 1rem;
+		padding-left: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2.75rem;
+		max-width: 720px;
+		position: relative;
+	}
+
+	.timeline-item {
+		position: relative;
+	}
+
+	/* Disable conflicting global accent dot */
+	.timeline-item::before {
+		display: none !important;
+	}
+
+	.timeline-dot {
+		position: absolute;
+		left: -2.4rem;
+		top: 0.35rem;
+		width: 12px;
+		height: 12px;
+		background: var(--bg-color);
+		border-radius: 50%;
+		border: 2px solid var(--border-color);
+		transition: all 0.2s ease;
+	}
+
+	.timeline-item:first-child .timeline-dot {
+		background: #ea580c;
+		border-color: #ea580c;
+		box-shadow: 0 0 8px rgba(234, 88, 12, 0.4);
+	}
+
+	:global([data-theme="dark"]) .timeline-dot {
+		background: var(--bg-color);
+		border: 2px solid #555555;
+	}
+
+	:global([data-theme="dark"]) .timeline-item:first-child .timeline-dot {
+		background: #fde047;
+		border-color: #fde047;
+		box-shadow: 0 0 10px rgba(253, 224, 71, 0.7);
+	}
+
+	.timeline-title {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-size: 1.08rem;
+		margin-bottom: 0.5rem;
+		letter-spacing: -0.01em;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem;
+	}
+
+	/* Light mode shades (True Orange family - no red) */
+	.timeline-years {
+		color: #c25e00; /* Deep true dark orange */
+		font-weight: 600;
+	}
+
+	.timeline-org {
+		color: #ea580c; /* Strong vibrant orange */
+		font-weight: 700;
+	}
+
+	.timeline-loc {
+		color: #d97706; /* Medium warm amber orange */
+		font-weight: 500;
+		opacity: 0.9;
+	}
+
+	/* Dark mode shades (Yellow family) */
+	:global([data-theme="dark"]) .timeline-years {
+		color: #eab308; /* Warm golden amber */
+		font-weight: 600;
+	}
+
+	:global([data-theme="dark"]) .timeline-org {
+		color: #fde047; /* Bright punchy yellow */
+		font-weight: 700;
+		text-shadow: 0 0 14px rgba(253, 224, 71, 0.25);
+	}
+
+	:global([data-theme="dark"]) .timeline-loc {
+		color: #fef08a; /* Soft creamy yellow */
+		font-weight: 500;
+		opacity: 0.8;
+	}
+
+	.timeline-list {
+		list-style-type: disc;
+		padding-left: 1.25rem;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+	}
+
+	.timeline-list li {
+		font-family: 'Roboto Mono', monospace;
+		font-size: 0.92rem;
+		line-height: 1.65;
+		color: var(--text-secondary);
+	}
+
+	.timeline-list li strong {
+		color: var(--text-primary);
+		font-weight: 600;
+	}
+
+	:global([data-theme="dark"]) .timeline-list li strong {
+		color: #ffffff;
+	}
+
+	.timeline-list a {
+		color: #0066cc; /* Crisp readable blue in light mode */
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		transition: color 0.15s ease;
+	}
+
+	:global([data-theme="dark"]) .timeline-list a {
+		color: #52a8ff; /* Vibrant light blue in dark mode */
+	}
+
+	.timeline-list a:hover {
+		color: var(--accent-hover);
+		text-decoration-thickness: 2px;
+	}
+
+	/* Collapsible Certifications Styles */
+	details.cv-cert-details {
+		margin-top: 1rem;
+		border: 1px solid var(--border-color);
+		border-radius: 6px;
+		background: var(--card-bg);
+		overflow: hidden;
+		transition: border-color 0.2s ease;
+	}
+
+	details.cv-cert-details[open] {
+		border-color: var(--accent-color);
+	}
+
+	details.cv-cert-details summary {
+		cursor: pointer;
+		padding: 0.6rem 0.9rem;
+		font-family: 'Roboto Mono', monospace;
+		font-size: 0.82rem;
+		color: var(--text-primary);
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		line-height: 1;
+		user-select: none;
+		transition: background 0.15s ease;
+	}
+
+	details.cv-cert-details summary::-webkit-details-marker {
+		display: none;
+	}
+
+	details.cv-cert-details summary:hover {
+		background: rgba(0, 112, 243, 0.05);
+	}
+
+	.cert-summary-left {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		line-height: 1;
+	}
+
+	.cert-title {
+		font-weight: 500;
+		line-height: 1;
+	}
+
+	.cert-arrow {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s ease;
+		color: var(--accent-color);
+		font-size: 0.8rem;
+		line-height: 1;
+	}
+
+	details[open] .cert-arrow {
+		transform: rotate(90deg);
+	}
+
+	.cert-tag {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Roboto Mono', monospace;
+		font-size: 0.72rem;
+		font-weight: 500;
+		padding: 0.22rem 0.55rem;
+		border-radius: 9999px;
+		background-color: var(--border-color);
+		color: var(--text-secondary);
+		line-height: 1;
+		margin: 0;
+		white-space: nowrap;
+	}
+
+	.cv-cert-body {
+		padding: 0.9rem;
+		border-top: 1px solid var(--border-color);
+	}
+
+	.cert-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+		gap: 0.75rem;
+	}
+
+	.cv-cert-card {
+		background: var(--bg-color);
+		border: 1px solid var(--border-color);
+		border-radius: 4px;
+		padding: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		cursor: pointer;
+		transition: transform 0.2s ease, border-color 0.2s ease;
+	}
+
+	.cv-cert-card:hover {
+		transform: translateY(-2px);
+		border-color: var(--accent-color);
+	}
+
+	.cv-cert-img-box {
+		width: 100%;
+		aspect-ratio: 4/3;
+		overflow: hidden;
+		border-radius: 3px;
+		background: var(--border-color);
+		margin-bottom: 0.4rem;
+	}
+
+	.cv-cert-img-box img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.2s ease;
+	}
+
+	.cv-cert-card:hover img {
+		transform: scale(1.05);
+	}
+
+	.cv-cert-meta h5 {
+		font-size: 0.76rem;
+		line-height: 1.3;
+		margin: 0 0 0.25rem 0;
+		font-weight: 500;
+	}
+
+	.cv-spec-spotlight {
+		display: flex;
+		align-items: center;
+		gap: 0.85rem;
+		background: var(--bg-color);
+		border: 1px solid var(--border-color);
+		border-left: 3px solid var(--accent-color);
+		border-radius: 4px;
+		padding: 0.55rem 0.75rem;
+		margin-bottom: 0.85rem;
+		cursor: pointer;
+		max-width: 440px;
+		transition: transform 0.2s ease, border-color 0.2s ease;
+	}
+
+	.cv-spec-spotlight:hover {
+		transform: translateY(-2px);
+		border-color: var(--accent-color);
+	}
+
+	.cv-spec-thumb {
+		width: 80px;
+		aspect-ratio: 4/3;
+		overflow: hidden;
+		border-radius: 3px;
+		background: var(--border-color);
+		flex-shrink: 0;
+	}
+
+	.cv-spec-thumb img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.2s ease;
+	}
+
+	.cv-spec-spotlight:hover .cv-spec-thumb img {
+		transform: scale(1.05);
+	}
+
+	.cv-spec-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		text-align: left;
+	}
+
+	.cv-spec-desc {
+		font-family: 'Roboto Mono', monospace;
+		font-size: 0.8rem;
+		color: var(--text-primary);
+		font-weight: 500;
+	}
+
+	@media (max-width: 480px) {
+		.cv-spec-spotlight {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		.cv-spec-thumb {
+			width: 100%;
+		}
+	}
+
+	.spec-courses-tree {
+		margin-left: 0.5rem;
+		padding-left: 1rem;
+		border-left: 2px dashed var(--border-color);
+		margin-top: 0.75rem;
+	}
+
+	.tree-header {
+		margin-bottom: 0.65rem;
+		font-size: 0.75rem;
+		color: var(--text-muted);
+	}
+</style>

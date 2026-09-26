@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const talks = await getCollection('talks');
+	return talks.map(entry => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const pageTitle = entry.data.pageTitle || `${entry.data.title} | Pablo`;
+const hasResources = (entry.data.links && entry.data.links.length > 0) ||
+	(entry.data.artifacts && entry.data.artifacts.length > 0) ||
+	Boolean(entry.data.slides);
+
+const talkImage = entry.data.artifacts && entry.data.artifacts.length > 0 
+	? entry.data.artifacts[0].src 
+	: undefined;
+---
+
+<Layout title={pageTitle} description={entry.data.description} image={talkImage}>
+	<div class="mb-8">
+		<a href="/talks" class="font-mono text-muted" style="font-size: 0.85rem;">&larr; Back to Talks & Publications</a>
+	</div>
+
+	<h1 class="mb-3">{entry.data.title}</h1>
+	<p class="font-mono text-muted text-sm mb-8">{entry.data.subtitle}</p>
+
+	<div class="talk-content">
+		<Content />
+	</div>
+
+	{hasResources && (
+		<section class="mb-12 mt-12">
+			<h2 class="mb-4">Resources & Artifacts</h2>
+			
+			{entry.data.links && entry.data.links.length > 0 && (
+				<div class="flex flex-col gap-3 mb-10">
+					{entry.data.links.map(link => (
+						<a 
+							href={link.url} 
+							target="_blank" 
+							rel="noopener noreferrer" 
+							class="list-item" 
+							style="padding: 0.9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; margin-bottom: 0;"
+						>
+							<span><strong>{link.text}</strong></span>
+							<span class="font-mono text-muted text-sm">{link.badge}</span>
+						</a>
+					))}
+				</div>
+			)}
+
+			{entry.data.artifacts && entry.data.artifacts.map(art => (
+				<div class="mb-8">
+					<h3 class="mb-3" style="font-size: 1.05rem;">{art.heading}</h3>
+					<img 
+						src={art.src} 
+						alt={art.alt} 
+						style="width: 100%; max-width: 780px; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--border-color);" 
+					/>
+				</div>
+			))}
+
+			{entry.data.slides && (
+				<div class="mb-8">
+					<h3 class="mb-3" style="font-size: 1.05rem;">{entry.data.slides.heading}</h3>
+					<div style="width: 100%; max-width: 780px; height: 500px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
+						<embed src={entry.data.slides.src} type="application/pdf" width="100%" height="100%" />
+					</div>
+					<p class="font-mono text-muted text-xs">
+						Can't view the embed? <a href={entry.data.slides.src} target="_blank" style="text-decoration: underline;">Download the PDF slides here</a>.
+					</p>
+				</div>
+			)}
+		</section>
+	)}
+</Layout>
+
+<style is:global>
+	.talk-content h2 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-top: 2.5rem;
+		margin-bottom: 0.75rem;
+		color: var(--text-primary);
+	}
+
+	.talk-content p {
+		color: var(--text-secondary);
+		font-size: 1rem;
+		line-height: 1.8;
+		max-width: 780px;
+		margin-bottom: 1rem;
+	}
+
+	.talk-content ul {
+		color: var(--text-secondary);
+		margin-left: 1.25rem;
+		margin-bottom: 1.5rem;
+		list-style-type: disc;
+		line-height: 1.8;
+		font-size: 1rem;
+		max-width: 780px;
+	}
+
+	.talk-content li {
+		margin-bottom: 0.5rem;
+	}
+
+	.talk-content strong {
+		color: var(--text-primary);
+	}
+</style>

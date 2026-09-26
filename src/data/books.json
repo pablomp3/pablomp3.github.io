@@ -1,0 +1,56 @@
+{
+  "technicalBooks": [
+    {
+      "year": 2024,
+      "title": "Build a Large Language Model (From Scratch)",
+      "author": "Sebastian Raschka"
+    },
+    {
+      "year": 2017,
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann"
+    },
+    {
+      "year": 1999,
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt & David Thomas"
+    }
+  ],
+  "nonTechnicalBooks": [
+    {
+      "year": 2018,
+      "title": "Los asquerosos",
+      "author": "Santiago Lorenzo"
+    },
+    {
+      "year": 1982,
+      "title": "Diaries to Nowhere · Diarios a ninguna parte · 萬水千山走遍",
+      "author": "Sanmao (三毛)"
+    },
+    {
+      "year": 1981,
+      "title": "Crónica de una muerte anunciada",
+      "author": "Gabriel García Márquez"
+    },
+    {
+      "year": 1977,
+      "title": "Stories of the Canary Islands · Diario de las Canarias · 稻草人手記",
+      "author": "Sanmao (三毛)"
+    },
+    {
+      "year": 1976,
+      "title": "Stories of the Sahara · Diarios del Sáhara · 撒哈拉的故事",
+      "author": "Sanmao (三毛)"
+    },
+    {
+      "year": 1928,
+      "title": "Romancero gitano",
+      "author": "Federico García Lorca"
+    },
+    {
+      "year": 1924,
+      "title": "Veinte poemas de amor y una canción desesperada",
+      "author": "Pablo Neruda"
+    }
+  ]
+}

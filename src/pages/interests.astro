@@ -1,0 +1,539 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import booksData from '../data/books.json';
+import albumsData from '../data/albums.json';
+import interestsData from '../data/interests.json';
+
+const technicalBooks = [...booksData.technicalBooks].sort((a, b) => b.year - a.year);
+const nonTechnicalBooks = [...booksData.nonTechnicalBooks].sort((a, b) => b.year - a.year);
+const albums = [...albumsData].sort((a, b) => b.year - a.year);
+---
+
+<Layout title="Interests | Pablo">
+	<h1 class="mb-4">Interests</h1>
+
+	<!-- SUB-NAVIGATION -->
+	<nav class="interest-nav font-mono text-sm" aria-label="Interests Sub-navigation">
+		<a href="#beyond-the-terminal" class="tag">#beyond-the-terminal</a>
+		<a href="#music" class="tag">#music</a>
+		<a href="#reading" class="tag">#reading</a>
+		<a href="#drawings" class="tag">#drawings</a>
+		<a href="#scuba-diving" class="tag">#scuba-diving</a>
+	</nav>
+
+	<!-- BEYOND THE TERMINAL -->
+	<section id="beyond-the-terminal" class="interest-section mb-16">
+		<div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); max-width: 650px;">
+			<h3 class="mb-3">Beyond the Terminal</h3>
+			<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc; line-height: 1.7; font-size: 0.95rem;">
+				{interestsData.beyondTheTerminal.map(item => (
+					<li class="mb-1" set:html={item} />
+				))}
+			</ul>
+		</div>
+	</section>
+
+	<!-- MUSIC -->
+	<section id="music" class="interest-section mb-16" style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
+		<h2 class="mb-6">Music</h2>
+		
+		<!-- PLAYING -->
+		<div class="mb-16">
+			<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+				<span class="font-mono text-muted text-xs">Live & stage</span>
+			</div>
+
+			<!-- Staggered Stage Showcase -->
+			<div class="playing-showcase">
+				<div class="playing-col">
+					<!-- Bassist tall -->
+					<div 
+						class="playing-card card-tall" 
+						onclick="window.openLightbox('/assets/interests/music/bassist.jpg')"
+					>
+						<img 
+							src="/assets/interests/music/bassist.jpg" 
+							alt="Playing bass live in concert" 
+							loading="lazy"
+						/>
+						<div class="playing-overlay">
+							<span class="playing-tag font-mono">Live on stage</span>
+						</div>
+						<div class="playing-expand-hint font-mono">Expand ↗</div>
+					</div>
+
+					<!-- Play Guitar wide -->
+					<div 
+						class="playing-card card-wide" 
+						onclick="window.openLightbox('/assets/interests/music/play_guitar.jpg')"
+					>
+						<img 
+							src="/assets/interests/music/play_guitar.jpg" 
+							alt="Electric guitar live" 
+							loading="lazy"
+						/>
+						<div class="playing-overlay">
+							<span class="playing-tag font-mono">Electric guitar live</span>
+						</div>
+						<div class="playing-expand-hint font-mono">Expand ↗</div>
+					</div>
+				</div>
+
+				<div class="playing-col">
+					<!-- Play Bass wide -->
+					<div 
+						class="playing-card card-wide" 
+						onclick="window.openLightbox('/assets/interests/music/play_bass.jpg')"
+					>
+						<img 
+							src="/assets/interests/music/play_bass.jpg" 
+							alt="Bass groove and rhythm" 
+							loading="lazy"
+						/>
+						<div class="playing-overlay">
+							<span class="playing-tag font-mono">Bass groove & rhythm</span>
+						</div>
+						<div class="playing-expand-hint font-mono">Expand ↗</div>
+					</div>
+
+					<!-- Guitar Solo tall -->
+					<div 
+						class="playing-card card-tall" 
+						onclick="window.openLightbox('/assets/interests/music/play_guitar_solo.jpg')"
+					>
+						<img 
+							src="/assets/interests/music/play_guitar_solo.jpg" 
+							alt="Guitar solo performance" 
+							loading="lazy"
+						/>
+						<div class="playing-overlay">
+							<span class="playing-tag font-mono">Guitar solo performance</span>
+						</div>
+						<div class="playing-expand-hint font-mono">Expand ↗</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ALBUMS -->
+		<div style="margin-top: 4rem; padding-top: 1rem;">
+			<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+				<h3 style="font-size: 1.15rem; color: var(--text-primary); margin: 0;">Albums</h3>
+			</div>
+			<p class="text-secondary mb-6" style="max-width: 650px; font-size: 0.95rem; line-height: 1.7;">
+				Some of my all time favorite records:
+			</p>
+
+			<div class="album-grid">
+				{albums.map(album => (
+					<div class="list-item album-tile" style="padding: 0.75rem; display: flex; flex-direction: column; margin-bottom: 0;">
+						<a 
+							href={`https://www.youtube.com/results?search_query=${encodeURIComponent(album.artist + ' ' + album.title + ' full album')}`}
+							target="_blank" 
+							rel="noopener noreferrer" 
+							class="album-cover-link"
+							aria-label={`Listen to ${album.title} by ${album.artist} on YouTube`}
+						>
+							<div class="album-cover-wrapper">
+								<img 
+									src={`/assets/interests/albums/${album.cover}`} 
+									alt={`${album.title} - ${album.artist}`} 
+									loading="lazy"
+								/>
+							</div>
+						</a>
+						<div style="flex-grow: 1; display: flex; flex-direction: column; margin-top: 0.65rem;">
+							<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.35rem; margin-bottom: 0.2rem;">
+								<h4 class="album-title-text">{album.title}</h4>
+								<span class="font-mono text-muted" style="font-size: 0.75rem; flex-shrink: 0;">[{album.year}]</span>
+							</div>
+							<span class="text-secondary" style="font-size: 0.82rem; overflow-wrap: anywhere; word-break: break-word;">{album.artist}</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- READING -->
+	<section id="reading" class="interest-section mb-16" style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
+		<h2 class="mb-4">Reading</h2>
+		
+		<h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.75rem;">Technical</h3>
+		<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc; line-height: 1.8; font-size: 0.95rem; max-width: 680px; margin-bottom: 2.25rem;">
+			{technicalBooks.map(book => (
+				<li class="mb-1">
+					<span class="font-mono text-muted" style="margin-right: 0.4rem;">[{book.year}]</span>
+					<a 
+						href={`https://www.google.com/search?q=${encodeURIComponent(book.title + ' ' + book.author)}`} 
+						target="_blank" 
+						rel="noopener noreferrer" 
+						class="book-link"
+						title={`Search "${book.title}" on Google`}
+					>
+						<strong class="text-primary book-title">{book.title}</strong>
+					</a>
+					<span> — {book.author}</span>
+				</li>
+			))}
+		</ul>
+
+		<h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.75rem;">Non-Technical</h3>
+		<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc; line-height: 1.8; font-size: 0.95rem; max-width: 680px;">
+			{nonTechnicalBooks.map(book => (
+				<li class="mb-1">
+					<span class="font-mono text-muted" style="margin-right: 0.4rem;">[{book.year}]</span>
+					<a 
+						href={`https://www.google.com/search?q=${encodeURIComponent(book.title + ' ' + book.author)}`} 
+						target="_blank" 
+						rel="noopener noreferrer" 
+						class="book-link"
+						title={`Search "${book.title}" on Google`}
+					>
+						<strong class="text-primary book-title">{book.title}</strong>
+					</a>
+					<span> — {book.author}</span>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<!-- DRAWINGS -->
+	<section id="drawings" class="interest-section mb-16" style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
+		<h2 class="mb-3">Drawings & Visual Art</h2>
+		<p class="text-secondary mb-6" style="max-width: 600px; font-size: 0.95rem;">
+			Sketches and visual experiments outside of code and audio circuits.
+		</p>
+		<div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; max-width: 650px;">
+			{interestsData.drawings.map(d => (
+				<div class="list-item" style="padding: 1rem; display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 0;">
+					<img src={`/assets/interests/art/${d.img}`} alt={d.alt} style="width: 100%; height: auto; border-radius: 4px; margin-bottom: 0.75rem; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="window.openLightbox(this.src)" />
+					<h4 style="font-size: 0.95rem; margin: 0;">{d.name}</h4>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- SCUBA DIVING -->
+	<section id="scuba-diving" class="interest-section mb-16" style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
+		<h2 class="mb-3">Scuba Diving</h2>
+		<!-- Dive Sites -->
+		<div class="mb-6">
+			<div class="font-mono text-xs text-muted mb-2">Sites where I have dived:</div>
+			<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc; line-height: 1.75; font-size: 0.92rem; max-width: 650px;">
+				{interestsData.scubaDiving.sites.map(site => (
+					<li class="mb-1"><strong class="text-primary">{site.country}:</strong> {site.locations}</li>
+				))}
+			</ul>
+		</div>
+
+		<!-- Diving Photos Grid -->
+		<div class="grid mb-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; max-width: 680px;">
+			{interestsData.scubaDiving.photos.map(photo => (
+				<div 
+					class="list-item" 
+					style="padding: 0.75rem; display: flex; flex-direction: column; margin-bottom: 0; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease;" 
+					onclick={`window.openLightbox('/assets/interests/diving/${photo.img}')`}
+					onmouseover="this.style.borderColor='var(--text-muted)'; this.style.transform='translateY(-2px)'"
+					onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'"
+				>
+					<div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; background: var(--border-color);">
+						<img 
+							src={`/assets/interests/diving/${photo.img}`} 
+							alt={photo.alt} 
+							style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease;" 
+							onmouseover="this.style.transform='scale(1.03)'" 
+							onmouseout="this.style.transform='scale(1)'" 
+						/>
+					</div>
+					<span class="font-mono text-muted text-xs mt-2" style="font-size: 0.78rem;">{photo.name}</span>
+				</div>
+			))}
+		</div>
+
+		<!-- PADI Credentials -->
+		<div class="font-mono text-xs text-muted mb-3">
+			<span>PADI Credentials:</span>
+		</div>
+		<div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; max-width: 420px;">
+			{interestsData.scubaDiving.certs.map(cert => (
+				<div class="list-item cert-card" style="padding: 0.75rem; display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 0;">
+					<div class="cert-img-wrapper" style="width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; margin-bottom: 0.5rem; background: var(--border-color);">
+						<img 
+							src={`/assets/cv/certificates/${cert.img}`} 
+							alt={cert.name} 
+							class="cert-img" 
+							style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease; cursor: pointer;" 
+							onmouseover="this.style.transform='scale(1.05)'" 
+							onmouseout="this.style.transform='scale(1)'" 
+							onclick={`window.openLightbox(this.src)`} 
+						/>
+					</div>
+					<h4 style="font-size: 0.84rem; margin-bottom: 0.2rem; line-height: 1.35; flex-grow: 1;">{cert.name}</h4>
+					<span class="font-mono text-muted" style="font-size: 0.75rem;">Certified</span>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- Lightbox Modal -->
+	<div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s ease;">
+		<img id="lightbox-img" src="" style="max-width: 70%; max-height: 75vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+	</div>
+
+	<script is:inline>
+		// Lightbox functionality
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = document.getElementById('lightbox-img');
+
+		window.openLightbox = function(src) {
+			lightboxImg.src = src;
+			lightbox.style.display = 'flex';
+			setTimeout(() => {
+				lightbox.style.opacity = '1';
+			}, 10);
+		};
+
+		if (lightbox) {
+			lightbox.addEventListener('click', function() {
+				lightbox.style.opacity = '0';
+				setTimeout(() => {
+					lightbox.style.display = 'none';
+				}, 300);
+			});
+		}
+	</script>
+
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+
+		.interest-nav {
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+			margin-bottom: 2rem;
+		}
+
+		.interest-nav .tag {
+			text-decoration: none;
+			font-size: 0.8rem;
+			padding: 0.3rem 0.75rem;
+		}
+
+		.interest-section {
+			scroll-margin-top: 5.5rem;
+			margin-bottom: 4rem;
+		}
+
+		.cert-card {
+			transition: border-color 0.2s ease, transform 0.2s ease;
+		}
+
+		.cert-card:hover {
+			border-color: var(--text-muted);
+			transform: translateY(-2px);
+		}
+
+		.playing-showcase {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1.25rem;
+		}
+
+		.playing-col {
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem;
+		}
+
+		@media (max-width: 640px) {
+			.playing-showcase {
+				grid-template-columns: 1fr;
+				gap: 1rem;
+			}
+			.playing-col {
+				gap: 1rem;
+			}
+		}
+
+		.playing-card {
+			position: relative;
+			border-radius: 8px;
+			overflow: hidden;
+			background: var(--card-bg);
+			border: 1px solid var(--border-color);
+			cursor: pointer;
+			transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+		}
+
+		.playing-card.card-tall {
+			height: 380px;
+		}
+
+		.playing-card.card-wide {
+			height: 240px;
+		}
+
+		@media (max-width: 640px) {
+			.playing-card.card-tall {
+				height: 300px;
+			}
+			.playing-card.card-wide {
+				height: 200px;
+			}
+		}
+
+		.playing-card img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+			filter: brightness(0.92) contrast(1.04);
+		}
+
+		.playing-card:hover {
+			border-color: var(--text-muted);
+			transform: translateY(-3px);
+			box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+		}
+
+		.playing-card:hover img {
+			transform: scale(1.04);
+			filter: brightness(1) contrast(1.08);
+		}
+
+		.playing-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 2.5rem 1.25rem 1rem;
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+			display: flex;
+			flex-direction: column;
+			gap: 0.3rem;
+			pointer-events: none;
+		}
+
+		.playing-tag {
+			font-size: 0.8rem;
+			color: #ffffff;
+			background: rgba(0, 0, 0, 0.55);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			padding: 0.28rem 0.7rem;
+			border-radius: 4px;
+			border: 1px solid rgba(255, 255, 255, 0.22);
+			width: fit-content;
+			letter-spacing: 0.03em;
+			font-weight: 600;
+		}
+
+		.playing-expand-hint {
+			position: absolute;
+			top: 0.75rem;
+			right: 0.75rem;
+			font-size: 0.72rem;
+			color: #ffffff;
+			background: rgba(0, 0, 0, 0.6);
+			backdrop-filter: blur(6px);
+			-webkit-backdrop-filter: blur(6px);
+			padding: 0.22rem 0.55rem;
+			border-radius: 4px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			opacity: 0;
+			transform: translateY(-4px);
+			transition: opacity 0.25s ease, transform 0.25s ease;
+			pointer-events: none;
+		}
+
+		.playing-card:hover .playing-expand-hint {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.album-grid {
+			display: grid;
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			gap: 1.25rem;
+		}
+
+		@media (max-width: 640px) {
+			.album-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 1rem;
+			}
+		}
+
+		.album-tile {
+			min-width: 0;
+			overflow: hidden;
+			transition: border-color 0.2s ease, transform 0.2s ease;
+		}
+
+		.album-title-text {
+			font-size: 0.88rem;
+			line-height: 1.35;
+			margin: 0;
+			font-weight: 600;
+			overflow-wrap: anywhere;
+			word-break: break-word;
+			hyphens: auto;
+		}
+
+		.album-tile:hover {
+			border-color: var(--text-muted);
+			transform: translateY(-2px);
+		}
+
+		.album-cover-link {
+			display: block;
+			text-decoration: none;
+		}
+
+		.album-cover-wrapper {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 1/1;
+			overflow: hidden;
+			border-radius: 6px;
+			background: var(--border-color);
+		}
+
+		.album-cover-wrapper img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.25s ease;
+		}
+
+		.album-cover-link:hover img {
+			transform: scale(1.05);
+		}
+
+		.book-link {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.book-link:hover .book-title {
+			color: var(--accent-color);
+			text-decoration: underline;
+			text-underline-offset: 3px;
+		}
+
+		@media (max-width: 540px) {
+			.spec-card {
+				flex-direction: column !important;
+				align-items: flex-start !important;
+			}
+			.spec-card .cert-img-wrapper {
+				width: 100% !important;
+			}
+		}
+	</style>
+</Layout>

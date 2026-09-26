@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allTalks = await getCollection('talks');
+const items = allTalks
+	.map(talk => ({
+		type: talk.data.type,
+		title: talk.data.title,
+		description: talk.data.description,
+		date: talk.data.date,
+		timestamp: talk.data.timestamp,
+		link: `/talk/${talk.slug}`
+	}))
+	.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+---
+
+<Layout title="Talks & Publications | Pablo">
+	<h1 class="mb-8">Talks & Publications</h1>
+	<div class="talks-list">
+		{items.map(item => (
+			<div class="list-item" style="cursor: pointer; display: block; text-decoration: none; color: inherit;" onclick={`window.location.href='${item.link}'`}>
+				<div style="display: flex; justify-content: flex-end; align-items: flex-start; margin-top: -0.5rem; margin-bottom: 0.25rem;">
+					<span class="font-mono text-muted" style="font-size: 0.85rem;">{item.date}</span>
+				</div>
+				<h3 class="mb-2"><a href={item.link}>{item.title}</a></h3>
+				<p class="text-secondary" style="font-size: 0.95rem;">{item.description}</p>
+				<div class="mt-4 font-mono text-muted" style="font-size: 0.85rem;">
+					-> View Details
+				</div>
+			</div>
+		))}
+	</div>
+</Layout>

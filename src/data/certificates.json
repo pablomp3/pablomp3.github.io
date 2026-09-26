@@ -1,0 +1,32 @@
+{
+  "gcp": {
+    "title": "Google Cloud Platform Certificates",
+    "tag": "7 Courses",
+    "courses": [
+      { "name": "Machine Learning Operations (MLOps)", "img": "coursera_mlops.jpeg", "date": "Jun 2024" },
+      { "name": "Launching into Machine Learning", "img": "coursera_launching_into_ml.jpeg", "date": "Apr 2024" },
+      { "name": "How Google does Machine Learning", "img": "coursera_how_google_does_ml.jpeg", "date": "Jan 2023" },
+      { "name": "Build Batch Data Pipelines on Google Cloud", "img": "coursera_build_data_pipelines.jpeg", "date": "Oct 2022" },
+      { "name": "Google Cloud Big Data and ML Fundamentals", "img": "coursera_gcp_ml_fundamentals.jpeg", "date": "Sep 2022" },
+      { "name": "Production Machine Learning Systems", "img": "coursera_production_ml.jpeg", "date": "Aug 2022" },
+      { "name": "Recommendation Systems on GCP", "img": "coursera_recommendation_systems.jpeg", "date": "May 2021" }
+    ]
+  },
+  "deepLearning": {
+    "title": "Deep Learning Specialization",
+    "tag": "5 Courses",
+    "spotlight": {
+      "img": "coursera_dl.jpeg",
+      "alt": "Deep Learning Specialization Certificate",
+      "label": "DeepLearning.AI Specialization Credential"
+    },
+    "treeHeader": "↳ Constituent Courses (5):",
+    "courses": [
+      { "name": "Neural Networks and Deep Learning", "img": "coursera_nn_dl.jpeg", "date": "Mar 2020" },
+      { "name": "Improving Deep Neural Networks", "img": "coursera_improving_nn.jpeg", "date": "Mar 2020" },
+      { "name": "Structuring Machine Learning Projects", "img": "coursera_structuring_ml.jpeg", "date": "Mar 2020" },
+      { "name": "Convolutional Neural Networks", "img": "coursera_convolutional_nn.jpeg", "date": "Dec 2021" },
+      { "name": "Sequence Models", "img": "coursera_sequence_models.jpeg", "date": "Dec 2021" }
+    ]
+  }
+}

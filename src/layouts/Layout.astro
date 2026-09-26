@@ -1,0 +1,145 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const { 
+	title,
+	description = "Pablo's personal portfolio, engineering projects, talks, and interests.",
+	image = "/assets/cv/timeline/gcp_prof_data_engineer.png"
+} = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://pablomp3.github.io';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const imageURL = new URL(image, siteUrl);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<!-- SEO & Canonical -->
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="description" content={description} />
+		<meta name="author" content="Pablo Marín Pérez" />
+
+		<!-- OpenGraph / LinkedIn / Facebook / WhatsApp -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={imageURL} />
+		<meta property="og:site_name" content="Pablo" />
+
+		<!-- Twitter / X Cards -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageURL} />
+		
+		<!-- Theme toggle script: Runs early to prevent flash of wrong theme -->
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				}
+				// Default to dark mode as requested
+				return 'dark';
+			})();
+		
+			if (theme === 'light') {
+				document.documentElement.setAttribute('data-theme', 'light');
+			} else {
+				document.documentElement.setAttribute('data-theme', 'dark');
+			}
+			window.localStorage.setItem('theme', theme);
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="container nav-container">
+				<nav>
+					<ul class="nav-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/cv">CV</a></li>
+						<li><a href="/talks">Talks & Publications</a></li>
+						<li><a href="/interests">Interests</a></li>
+					</ul>
+				</nav>
+				
+				<button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+					<!-- Sun/Moon icon will be toggled in JS -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun" id="sun-icon">
+						<circle cx="12" cy="12" r="5"></circle>
+						<line x1="12" y1="1" x2="12" y2="3"></line>
+						<line x1="12" y1="21" x2="12" y2="23"></line>
+						<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+						<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+						<line x1="1" y1="12" x2="3" y2="12"></line>
+						<line x1="21" y1="12" x2="23" y2="12"></line>
+						<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+						<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+					</svg>
+				</button>
+			</div>
+		</header>
+		
+		<main class="container">
+			<slot />
+		</main>
+		
+		<script>
+			// Set correct active link
+			const currentPath = window.location.pathname;
+			const navLinks = document.querySelectorAll('.nav-links a');
+			navLinks.forEach(link => {
+				const href = link.getAttribute('href');
+				if (href === currentPath || 
+					(href !== '/' && href && currentPath.startsWith(href))) {
+					link.setAttribute('aria-current', 'page');
+				}
+			});
+
+			// Theme Toggle Logic
+			const themeToggleBtn = document.getElementById('theme-toggle');
+			
+			const updateIcon = () => {
+				if (!themeToggleBtn) return;
+				const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+				if (isDark) {
+					// Show Moon icon (switch to light)
+					themeToggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+				} else {
+					// Show Sun icon (switch to dark)
+					themeToggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+				}
+			};
+
+			updateIcon();
+
+			if (themeToggleBtn) {
+				themeToggleBtn.addEventListener('click', () => {
+					const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+					if (isDark) {
+						document.documentElement.setAttribute('data-theme', 'light');
+						localStorage.setItem('theme', 'light');
+					} else {
+						document.documentElement.setAttribute('data-theme', 'dark');
+						localStorage.setItem('theme', 'dark');
+					}
+					updateIcon();
+				});
+			}
+		</script>
+	</body>
+</html>

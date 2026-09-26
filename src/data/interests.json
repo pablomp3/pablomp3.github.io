@@ -1,0 +1,64 @@
+{
+  "beyondTheTerminal": [
+    "<strong class=\"text-primary\">8+ years</strong> living in Taiwan.",
+    "<strong class=\"text-primary\">Languages:</strong> Fluent in English, Spanish, Portuguese and Mandarin Chinese.",
+    "<strong class=\"text-primary\">Music:</strong> I've played guitar for a number of years; currently learning piano and drums."
+  ],
+  "liveMusic": [
+    {
+      "tag": "Live on stage",
+      "img": "bassist.jpg",
+      "alt": "Playing bass live in concert",
+      "type": "tall"
+    },
+    {
+      "tag": "Electric guitar live",
+      "img": "play_guitar.jpg",
+      "alt": "Electric guitar live",
+      "type": "wide"
+    },
+    {
+      "tag": "Bass groove & rhythm",
+      "img": "play_bass.jpg",
+      "alt": "Bass groove and rhythm",
+      "type": "wide"
+    },
+    {
+      "tag": "Guitar solo performance",
+      "img": "play_guitar_solo.jpg",
+      "alt": "Guitar solo performance",
+      "type": "tall"
+    }
+  ],
+  "drawings": [
+    {
+      "name": "Sketch with Guitar",
+      "img": "pablo_sketch_with_guitar.jpg",
+      "alt": "Sketch with Guitar"
+    }
+  ],
+  "scubaDiving": {
+    "sites": [
+      { "country": "Taiwan", "locations": "Xiaoliuqiu, Green Island (綠島), Kenting" },
+      { "country": "Thailand", "locations": "Racha Island (Phuket)" },
+      { "country": "Indonesia", "locations": "Komodo Island" },
+      { "country": "Malaysia", "locations": "Sabah" }
+    ],
+    "photos": [
+      {
+        "name": "Racha Island (Phuket, Thailand)",
+        "img": "diving_pecio.jpg",
+        "alt": "Shipwreck diving in Racha Island, Phuket, Thailand"
+      },
+      {
+        "name": "Xiaoliuqiu (Taiwan)",
+        "img": "diving_chill.JPG",
+        "alt": "Scuba diving in Xiaoliuqiu, Taiwan"
+      }
+    ],
+    "certs": [
+      { "name": "PADI Open Water", "img": "PADI.jpeg", "date": "Certification" },
+      { "name": "PADI Advanced Open Water", "img": "PADI.jpeg", "date": "Certification" }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "micron",
+    "years": "(2022 - Present)",
+    "org": "Micron Technology",
+    "location": "(Taiwan)",
+    "highlights": [
+      "I work as <strong>Senior Machine Learning Engineer</strong> at the intersection between <strong>ML & Semiconductors</strong>, designing and building scalable ML pipelines and <strong>agents</strong>.",
+      "Regular attendee and <a href=\"/talk/keep-audio\">speaker at PyCon TW</a>."
+    ],
+    "specialSection": "gcp-certs"
+  },
+  {
+    "id": "titansoft",
+    "years": "(2020 - 2022)",
+    "org": "Titansoft",
+    "location": "(Taiwan)",
+    "highlights": [
+      "Moved to Taipei to work as <strong>Data Scientist</strong> on <strong>fraud detection</strong> and <strong>CRM modeling</strong>.",
+      "I turned raw data into concrete business actions and kept <a href=\"/talk/automl\">ML models in production</a>."
+    ]
+  },
+  {
+    "id": "nthu-ai-lab",
+    "years": "(2019 - 2020)",
+    "org": "NTHU Artificial Intelligence Lab",
+    "location": "(Taiwan)",
+    "highlights": [
+      "I joined the NTHU AI Lab as a <strong>Research Data Scientist</strong> to use <strong>generative models (VAEs) for automatic music generation</strong>, resulting in a few <a href=\"https://www.semanticscholar.org/author/Pablo-L%C3%B3pez-Di%C3%A9guez/2059018950\" target=\"_blank\" rel=\"noopener noreferrer\">publications</a> and  <a href=\"/talk/polyphonic-music\">talks</a>!"
+    ],
+    "specialSection": "dl-certs",
+    "images": [
+      {
+        "src": "/assets/cv/timeline/taai_vae.jpg",
+        "alt": "NTHU AI Lab"
+      }
+    ]
+  },
+  {
+    "id": "trinalog",
+    "years": "(2019)",
+    "org": "Trinalog",
+    "location": "(Taiwan)",
+    "highlights": [
+      "Developed firmware for the world's first app-controlled <strong>Analog Modular Pedalboard</strong>, a natural continuation of my <a href=\"/talk/sound-processor\">guitar pedal thesis</a>."
+    ],
+    "images": [
+      {
+        "src": "/assets/cv/timeline/trinalog.jpeg",
+        "alt": "Trinalog Effects Station"
+      },
+      {
+        "src": "/assets/cv/timeline/trinalog_bt.jpg",
+        "alt": "Trinalog Effects Station"
+      }
+    ]
+  },
+  {
+    "id": "nthu-masters",
+    "years": "(2018 - 2020)",
+    "org": "National Tsing Hua University",
+    "location": "(Taiwan)",
+    "highlights": [
+      "I moved to <a href=\"https://www.alessandrogandolfi.com/editorial/in-asias-silicon-valley-299\" target=\"_blank\" rel=\"noopener noreferrer\">Asia's Silicon Valley</a> to study Deep Learning and to pursue a <strong>Master's in Information Systems and Computer Science</strong>, backed by the <a href=\"https://www.roc-taiwan.org/es_es/cat/9.html\" target=\"_blank\" rel=\"noopener noreferrer\">Taiwan Scholarship (only 3 scholarships are granted every year to Spanish nationals)</a>."
+    ]
+  },
+  {
+    "id": "arcelormittal",
+    "years": "(2018)",
+    "org": "ArcelorMittal",
+    "location": "(Spain)",
+    "highlights": [
+      "Intership developing <strong>strain measurement software + hardware</strong> (yes, I soldered the PCBs and code it myself).",
+      "I decided not staying after graduation but <strong>moving to Taiwan instead</strong> (it felt more adventurous)!"
+    ],
+    "images": [
+      {
+        "src": "/assets/cv/timeline/arcelor.jpg",
+        "alt": "Trinalog Effects Station"
+      }
+    ]
+  },
+  {
+    "id": "edp",
+    "years": "(2017 - 2018)",
+    "org": "EDP",
+    "location": "(Spain)",
+    "highlights": [
+      "Internship at the <strong>Aboño Thermal Power Plant</strong> in northern Spain. I assisted turbine renovations that boosted efficiency by >4%."
+    ]
+  },
+  {
+    "id": "xiaomi",
+    "years": "(2016 - 2017)",
+    "org": "Xiaomi",
+    "location": "(China)",
+    "highlights": [
+      "<strong>Paused my engineering degree for 6 months</strong> to work as a Software Specialist at Xiaomi.",
+      "A crash-course in <strong>software localization (MIUI OS)</strong> and adapting to a different work culture (KTVs included)!"
+    ]
+  },
+  {
+    "id": "bit",
+    "years": "(2015 - 2016)",
+    "org": "Beijing Institute of Technology",
+    "location": "(China)",
+    "highlights": [
+      "My first taste of living in Asia.",
+      "Spent a year as an <strong>exchange student in Electronic Engineering</strong>, which inspired me to <strong>start learning Mandarin</strong>."
+    ],
+    "images": [
+      {
+        "src": "/assets/cv/timeline/beijing.png",
+        "alt": "Electric Guitar Pedal (bottom)"
+      }
+    ]
+  },
+  {
+    "id": "uni-oviedo",
+    "years": "(2013 - 2018)",
+    "org": "Universidad de Oviedo",
+    "location": "(Spain)",
+    "highlights": [
+      "Moved to the Spanish northern coast in <a href=\"https://www.google.com/maps/place/Gij%C3%B3n,+Asturias,+Spain/\" target=\"_blank\" rel=\"noopener noreferrer\">Gijón</a> to study <strong>Electronic and Automation Engineering</strong>.",
+      "Built a <a href=\"/talk/sound-processor\">programmable digital effects</a> pedal from scratch for my thesis—kicking off my interest in <strong>audio hardware and DSP</strong>."
+    ],
+    "images": [
+      {
+        "src": "/assets/cv/timeline/electric_guitar_pedal.jpeg",
+        "alt": "Electric Guitar Pedal (top)"
+      },
+      {
+        "src": "/assets/cv/timeline/pcb_texas.jpg",
+        "alt": "Electric Guitar Pedal (bottom)"
+      }
+    ]
+  },
+  {
+    "id": "early-years",
+    "org": "Early Years",
+    "highlights": [
+      "Born in <a href=\"https://www.google.com/maps/place/Ponferrada,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Ponferrada</a>. Growing up, I moved around and lived in <a href=\"https://www.google.com/maps/place/Macotera,+Salamanca,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Macotera</a> (Salamanca), <a href=\"https://www.google.com/maps/place/Sahagún,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Sahagún</a> (León), and <a href=\"https://www.google.com/maps/place/Setúbal,+Portugal\" target=\"_blank\" rel=\"noopener noreferrer\">Setúbal</a> (Portugal)—just south of Lisbon, right after crossing the interminable Vasco da Gama bridge.",
+      "When I was 9, I <strong>visited China (Beijing and Yunnan) for the first time</strong> with my parents. It must have left a lasting impression on me, as I would end up moving back to live there for almost two years later in life."
+    ]
+  }
+]
