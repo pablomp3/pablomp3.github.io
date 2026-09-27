@@ -1,11 +1,10 @@
 ---
 title: "Variational Autoencoders for Polyphonic Music Interpolation"
 pageTitle: "Polyphonic Music Generation | Pablo"
-subtitle: "Master's Thesis Research · NTHU AI Lab · 2020 – 2022"
 type: "Publication"
 date: "Mar 2022"
 timestamp: "2022-03"
-description: "My Master's Thesis research, conducted while working as a Research Scientist at the National Tsing Hua University AI Lab. This work introduced a novel VAE architecture for music generation and resulted in two publications to international journals and conferences."
+description: "A novel Variational Autoencoder (VAE+NN) architecture for polyphonic music interpolation that outperforms standard linear sampling approaches. Published in JISE and IEEE TAAI."
 links:
   - text: "Read Journal Paper (JISE 2022)"
     url: "https://jise.iis.sinica.edu.tw/JISESearch/fullText;jsessionid=ae47212eac032c3804c2227d540f?pId=2488&code=34C89A9F403A58A"
@@ -16,10 +15,6 @@ links:
   - text: "View Source Code (GitHub)"
     url: "https://github.com/pablomp3/ML-interpolation-Master-Thesis"
     badge: "Repository ↗"
-artifacts:
-  - heading: "Conference Presentation (TAAI 2020)"
-    src: "/assets/talks/polyphonic-music/visionandsound.png"
-    alt: "Presenting at TAAI 2020"
 slides:
   heading: "Presentation Slides"
   src: "/assets/talks/polyphonic-music/TAAI_Variational_Autoencoders.pdf"
@@ -27,23 +22,36 @@ slides:
 
 ## The Problem
 
-If you want an algorithm to create a smooth musical transition between two different songs (Piece A to Piece B), the naive mathematical approach is linear interpolation: draw a straight line between the data points of both pieces and sample points along that line.
+In traditional Machine Learning, the generation of music is conditioned on past events. But what if we could **condition the music generation on both past and future events**? The problem of music interpolation composition is constructing new data points within the range of a discrete set of known data points. 
 
-With simple single-note melodies, that sometimes sounds acceptable. But with polyphonic music—where multiple notes, chords, and basslines happen at the same time—a straight mathematical average fails completely. It produces clashing notes, out-of-scale intervals, and broken rhythms that sound like random keyboard mashing rather than music.
+If we input a begin track and an end track of 10 seconds each to our model, the goal is to obtain a middle (or interpolation) track of also 10 seconds as output, whose pitches and dynamics smoothly match both given tracks.
+
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/interpolation_definition.jpg" alt="Interpolation Definition" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
 
 ## The Approach & Architecture
 
-At the National Tsing Hua University AI Lab, I designed a system that teaches a generative model to navigate music in a way that respects music theory:
+This thesis aims to use Machine Learning techniques to solve this novel problem using generative models. Rather than relying on standard linear sampling of the latent space (which often yields poor musical results), a novel architecture is proposed: **Variational Autoencoder + Neural Network (VAE+NN)**.
 
-- **Variational Autoencoder (VAE):** The model compresses bars of symbolic MIDI music down into a compact continuous space (the latent space) that captures harmonic and structural features.
-- **Latent Trajectory Estimator:** Instead of drawing a naive straight line between two points in this latent space, I trained a secondary neural network to predict a realistic path between the starting and ending bars.
-- **Decoder Reconstruction:** The decoder unpacks the points along this path back into polyphonic MIDI, ensuring intermediate bars follow valid chord progressions and rhythmic timing.
+- **Dataset Creation**: The *Hsinchu Interpolation MIDI Dataset* was created to make the model more efficient than previous approaches in the literature in terms of computational and time requirements during training.
+- **Latent Space Estimation**: The core of the novel architecture performs interpolation via direct estimation of the encoded vector. 
+
+The process follows these steps:
+1. Encode the begin track and end track with the VAE to obtain `z_begin` and `z_end`, respectively.
+2. Use a secondary neural network (NN) to directly estimate the interpolation encoded vector `z_interpolation` based on `z_begin` and `z_end`. This predicts a realistic, curved trajectory through the latent space instead of a naive straight line.
+3. Decode the interpolation encoded vector `z_interpolation` to obtain the final polyphonic interpolation track.
+
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/VAE%2BNN_architecture.jpg" alt="VAE+NN Architecture" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
 
 ## Outcome & What I Learned
 
-The model produced musical transitions that kept rhythmic pulse and harmonic coherence, avoiding the harsh clashing notes produced by standard linear methods. The project led to two peer-reviewed publications:
+The novel VAE+NN model significantly outperformed standard VAEs that rely on linear sampling of the latent space (an approach comparable to the state-of-the-art, such as Google Magenta's MusicVAE). By predicting a realistic path instead of a naive mathematical average, the VAE+NN architecture achieved a much lower reconstruction loss.
 
-- **Journal Paper (2022):** Published in the *Journal of Information Science and Engineering (JISE)*.
-- **Conference Paper (2020):** Presented at the *International Conference on Technologies and Applications of Artificial Intelligence (TAAI)*.
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/MSE_average.jpg" alt="MSE Error Comparison" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
 
-**Key Takeaway:** High-dimensional latent spaces in generative models are curved and uneven. Assuming you can simply walk in a straight line between two concepts rarely works—you have to design constraints that reflect the physical or theoretical rules of your actual domain.
+To ensure the validity of the results, a quantitative user study was conducted with 32 users from 8 different countries. The subjective evaluation confirmed that human listeners strongly preferred the interpolations generated by the VAE+NN model over the linear sampling baseline.
+
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/subjective_evaluation_total.jpg" alt="Subjective Evaluation" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+
+This research resulted in two publications to international journals and conferences (JISE 2022 and IEEE TAAI 2020).
+
+<img src="/assets/talks/polyphonic-music/visionandsound.png" alt="Presenting at TAAI 2020" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 2rem 0;" />

@@ -5,7 +5,7 @@ const talks = defineCollection({
   schema: z.object({
     title: z.string(),
     pageTitle: z.string().optional(),
-    subtitle: z.string(),
+    subtitle: z.string().optional(),
     type: z.enum(['Talk', 'Publication']),
     date: z.string(),
     timestamp: z.string(),

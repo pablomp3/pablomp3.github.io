@@ -12,10 +12,19 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 		<p class="text-secondary" style="font-size: 1.05rem; max-width: 650px; line-height: 1.6;">
 			{hero.intro}
 		</p>
-		<p class="text-secondary" style="font-size: 1rem; max-width: 650px; line-height: 1.6; margin-top: -0.5rem;">
-			{hero.specialization}
-		</p>
-		<p class="text-secondary" style="font-size: 1rem; max-width: 650px; line-height: 1.6; margin-top: -0.5rem;" set:html={hero.hobbies} />
+		
+		<div style="font-size: 1rem; max-width: 650px; line-height: 1.6; margin-top: -0.5rem;">
+			<p class="mb-4 text-secondary" set:html={engineeringFocus.lead} />
+			<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc;">
+				{engineeringFocus.areas.map(area => (
+					<li class="mb-2">
+						<strong class="text-primary">{area.title}:</strong> <span set:html={area.description} />
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<p class="text-secondary" style="font-size: 1rem; max-width: 650px; line-height: 1.6;" set:html={hero.hobbies} />
 		<div class="social-row font-mono text-secondary">
 			<span>Find me on:</span>
 			{hero.socialLinks.map((link, idx) => (
@@ -26,22 +35,6 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 					</a>
 				</>
 			))}
-		</div>
-	</div>
-
-	<!-- ENGINEERING FOCUS -->
-	<div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
-		<h2 class="mb-4">{engineeringFocus.title}</h2>
-		
-		<div class="mb-4" style="font-size: 1rem; max-width: 650px; line-height: 1.6;">
-			<p class="mb-4 text-secondary" set:html={engineeringFocus.lead} />
-			<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc;">
-				{engineeringFocus.areas.map(area => (
-					<li class="mb-2">
-						<strong class="text-primary">{area.title}:</strong> <span set:html={area.description} />
-					</li>
-				))}
-			</ul>
 		</div>
 	</div>
 

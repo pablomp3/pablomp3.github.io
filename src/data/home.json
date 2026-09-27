@@ -14,7 +14,7 @@
   },
   "engineeringFocus": {
     "title": "Engineering Focus",
-    "lead": "With a formal background in <a href=\"/cv\">Electronic Engineering and Computer Science</a>, I have worked across the US, Spain, Portugal, China, and Taiwan on applied systems:",
+    "lead": "With a <a href=\"/cv\">formal background in Electronic Engineering and Computer Science</a>, I have worked across the US, Spain, Portugal, China, and Taiwan on:",
     "areas": [
       {
         "title": "Production ML & Infrastructure",
@@ -34,12 +34,8 @@
     "title": "Say Hi / Coffee Chat",
     "description": "I enjoy meeting new people and keep an open door for anyone curious about moving to Taiwan, breaking into machine learning and semiconductors, or hacking on music tech and audio hardware.",
     "mentorship": "Over the past few years, I’ve also mentored university students through <a href=\"https://www.imfahe.org\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline;\">IMFAHE</a>.",
-    "invitation": "Feel free to grab 15 or 30 minutes on my calendar to talk shop or just say hello:",
+    "invitation": "Feel free to grab a slot on my calendar to chat or just say hello:",
     "bookingLinks": [
-      {
-        "label": "-> 15 Min Chat",
-        "url": "https://cal.com/pablo-dnr5yz/15min"
-      },
       {
         "label": "-> 30 Min Chat",
         "url": "https://cal.com/pablo-dnr5yz/30min"

@@ -1,11 +1,10 @@
 ---
 title: "AutoML: Evolving Neural Networks"
 pageTitle: "AutoML: Evolving Neural Networks | Pablo"
-subtitle: "Internal Tech Talk · Titansoft TechDays 2021"
 type: "Talk"
 date: "Oct 2021"
 timestamp: "2021-10"
-description: "An internal talk given at Titansoft's TechDays covering automated machine learning pipelines and network evolution."
+description: "An evolutionary algorithm approach to Automated Machine Learning (AutoML), optimizing neural network architectures for production pipelines."
 slides:
   heading: "Presentation Slides"
   src: "/assets/talks/automl/Evolving_Neural_Networks.pdf"
