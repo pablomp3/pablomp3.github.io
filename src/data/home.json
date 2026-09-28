@@ -1,24 +1,42 @@
 {
   "hero": {
     "title": "Hi, I'm Pablo.",
-    "intro": "Machine Learning Engineer from 🇪🇸 Spain, based in 🇹🇼 Taiwan and working in the semiconductor industry.",
+    "intro": "<strong>Machine Learning Engineer</strong> from \ud83c\uddea\ud83c\uddf8 Spain, based in \ud83c\uddf9\ud83c\uddfc Taiwan and working in the semiconductor industry.",
     "specialization": "I build production-grade ML systems, specializing in data pipelines, MLOps, CI/CD, IaC (Infrastructure as Code), and autonomous agentic workflows.",
-    "hobbies": "In my spare time, I develop tools at the intersection of <a href=\"/talk/keep-audio\">creativity and audio</a>.",
     "socialLinks": [
-      { "name": "LinkedIn", "url": "https://www.linkedin.com/in/pablomp3/", "target": "_blank" },
-      { "name": "GitHub", "url": "https://github.com/pablomp3", "target": "_blank" },
-      { "name": "ResearchGate", "url": "https://www.researchgate.net/profile/Pablo-Lopez-Dieguez", "target": "_blank" },
-      { "name": "Semantic Scholar", "url": "https://www.semanticscholar.org/author/Pablo-L%C3%B3pez-Di%C3%A9guez/2059018950", "target": "_blank" },
-      { "name": "Email", "url": "mailto:pabloldieguez@gmail.com" }
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/pablomp3/",
+        "target": "_blank"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/pablomp3",
+        "target": "_blank"
+      },
+      {
+        "name": "ResearchGate",
+        "url": "https://www.researchgate.net/profile/Pablo-Lopez-Dieguez",
+        "target": "_blank"
+      },
+      {
+        "name": "Semantic Scholar",
+        "url": "https://www.semanticscholar.org/author/Pablo-L%C3%B3pez-Di%C3%A9guez/2059018950",
+        "target": "_blank"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:pabloldieguez@gmail.com"
+      }
     ]
   },
   "engineeringFocus": {
     "title": "Engineering Focus",
-    "lead": "With a <a href=\"/cv\">formal background in Electronic Engineering and Computer Science</a>, I have worked across the US, Spain, Portugal, China, and Taiwan on:",
+    "lead": "With a <a href=\"/cv\">formal background in EECS</a>, I have worked across the US, Spain, Portugal, China, and Taiwan on:",
     "areas": [
       {
         "title": "Production ML & Infrastructure",
-        "description": "Designing end-to-end ML pipelines, automating deployment with CI/CD, Infrastructure as Code (IaC), and MLOps practices."
+        "description": "Designing end-to-end ML pipelines, automating deployment with CI/CD, Infrastructure as Code (IaC), and MLOps."
       },
       {
         "title": "Agent Development & Applied AI",
@@ -26,18 +44,18 @@
       },
       {
         "title": "Audio & Creative Tech",
-        "description": "Research in <a href=\"/talk/polyphonic-music\">deep learning for music generation</a> and <a href=\"/talk/sound-processor\">DSP hardware design</a> for guitar effects."
+        "description": "Research in <a href=\"/talk/polyphonic-music\">deep learning for music generation</a>, DSP <a href=\"/talk/sound-processor\">hardware for electric guitar</a>. In my spare time, I develop tools at the intersection of <a href=\"/talk/keep-audio\">creativity and audio</a>."
       }
     ]
   },
   "coffeeChat": {
     "title": "Say Hi / Coffee Chat",
     "description": "I enjoy meeting new people and keep an open door for anyone curious about moving to Taiwan, breaking into machine learning and semiconductors, or hacking on music tech and audio hardware.",
-    "mentorship": "Over the past few years, I’ve also mentored university students through <a href=\"https://www.imfahe.org\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline;\">IMFAHE</a>.",
-    "invitation": "Feel free to grab a slot on my calendar to chat or just say hello:",
+    "mentorship": "Over the past few years, I\u2019ve also mentored university students through <a href=\"https://www.imfahe.org\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline;\">IMFAHE</a>.",
+    "invitation": "Feel free to grab a slot on my calendar to chat:",
     "bookingLinks": [
       {
-        "label": "-> 30 Min Chat",
+        "label": "-> Say hello",
         "url": "https://cal.com/pablo-dnr5yz/30min"
       }
     ]

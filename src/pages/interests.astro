@@ -426,8 +426,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 
 		@media (max-width: 640px) {
 			.album-grid {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				gap: 1rem;
+				gap: 0.5rem; /* slightly tighter gap for mobile while keeping 4 cols */
 			}
 		}
 

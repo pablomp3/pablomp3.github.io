@@ -36,3 +36,4 @@ src/pages/posts.astro
 src/data/posts.json
 src/pages/drafts/
 drafts/
+_archive/

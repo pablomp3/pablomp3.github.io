@@ -25,7 +25,12 @@ const { gcp, deepLearning } = certsData;
 				<h3 class="timeline-title">
 					{item.years && <span class="timeline-years">{item.years}</span>}
 					<span class="timeline-org">{item.org}</span>
-					{item.location && <span class="timeline-loc">{item.location}</span>}
+					{item.location && 
+						<span class="timeline-loc">
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.15rem; opacity: 0.8;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+							{item.location}
+						</span>
+					}
 				</h3>
 				<ul class="timeline-list">
 					{item.highlights.map(hl => (
@@ -195,39 +200,46 @@ const { gcp, deepLearning } = certsData;
 		gap: 0.35rem;
 	}
 
-	/* Light mode shades (True Orange family - no red) */
 	.timeline-years {
-		color: #c25e00; /* Deep true dark orange */
-		font-weight: 600;
+		color: var(--text-secondary);
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		padding: 0.15rem 0.6rem;
+		border-radius: 99px;
+		font-size: 0.8rem;
+		font-family: 'Roboto Mono', monospace;
+		font-weight: 500;
+		margin-right: 0.25rem;
 	}
 
 	.timeline-org {
-		color: #ea580c; /* Strong vibrant orange */
+		color: #ea580c; /* Orange color in light mode */
 		font-weight: 700;
+		font-size: 1.15rem;
+		margin-right: 0.25rem;
 	}
 
 	.timeline-loc {
-		color: #d97706; /* Medium warm amber orange */
+		color: var(--text-muted);
 		font-weight: 500;
-		opacity: 0.9;
+		font-size: 0.85rem;
+		display: inline-flex;
+		align-items: center;
+		padding-left: 0.25rem;
 	}
 
-	/* Dark mode shades (Yellow family) */
+	/* Dark mode overrides if needed */
 	:global([data-theme="dark"]) .timeline-years {
-		color: #eab308; /* Warm golden amber */
-		font-weight: 600;
+		background: rgba(255, 255, 255, 0.05);
 	}
 
 	:global([data-theme="dark"]) .timeline-org {
-		color: #fde047; /* Bright punchy yellow */
-		font-weight: 700;
+		color: #fde047; /* Keep the yellow accent for org in dark mode */
 		text-shadow: 0 0 14px rgba(253, 224, 71, 0.25);
 	}
 
 	:global([data-theme="dark"]) .timeline-loc {
-		color: #fef08a; /* Soft creamy yellow */
-		font-weight: 500;
-		opacity: 0.8;
+		color: #a1a1aa;
 	}
 
 	.timeline-list {
