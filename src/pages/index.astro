@@ -23,7 +23,6 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 			</ul>
 		</div>
 
-		{hero.hobbies && <p class="text-secondary" style="font-size: 1.05rem; max-width: 650px; line-height: 1.7;" set:html={hero.hobbies} />}
 		<div class="social-row font-mono text-secondary" style="margin-top: 0.5rem;">
 			<span>Find me on:</span>
 			{hero.socialLinks.map((link, idx) => (

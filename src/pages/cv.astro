@@ -1,10 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import certsData from '../data/certificates.json';
 import timeline from '../data/timeline.json';
 
-const { gcp, deepLearning } = certsData;
 ---
 
 <Layout title="CV | Pablo">
@@ -38,71 +36,6 @@ const { gcp, deepLearning } = certsData;
 					))}
 				</ul>
 
-				{item.specialSection === 'gcp-certs' && (
-					<details class="cv-cert-details">
-						<summary>
-							<span class="cert-summary-left">
-								<span class="cert-arrow">▸</span>
-								<span class="cert-title">{gcp.title}</span>
-							</span>
-							<span class="cert-tag">{gcp.tag}</span>
-						</summary>
-						<div class="cv-cert-body">
-							<div class="cert-grid">
-								{gcp.courses.map(cert => (
-									<div class="cv-cert-card" onclick={`window.openLightbox('/assets/cv/certificates/${cert.img}')`}>
-										<div class="cv-cert-img-box">
-											<img src={`/assets/cv/certificates/${cert.img}`} alt={cert.name} loading="lazy" />
-										</div>
-										<div class="cv-cert-meta">
-											<h5>{cert.name}</h5>
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-					</details>
-				)}
-
-				{item.specialSection === 'dl-certs' && (
-					<details class="cv-cert-details">
-						<summary>
-							<span class="cert-summary-left">
-								<span class="cert-arrow">▸</span>
-								<span class="cert-title">{deepLearning.title}</span>
-							</span>
-							<span class="cert-tag">{deepLearning.tag}</span>
-						</summary>
-						<div class="cv-cert-body">
-							<div class="cv-spec-spotlight" onclick={`window.openLightbox('/assets/cv/certificates/${deepLearning.spotlight.img}')`}>
-								<div class="cv-spec-thumb">
-									<img src={`/assets/cv/certificates/${deepLearning.spotlight.img}`} alt={deepLearning.spotlight.alt} loading="lazy" />
-								</div>
-								<div class="cv-spec-info">
-									<span class="font-mono text-xs text-muted">{deepLearning.spotlight.label}</span>
-								</div>
-							</div>
-
-							<div class="spec-courses-tree">
-								<div class="tree-header font-mono text-xs text-muted">
-									<span>{deepLearning.treeHeader}</span>
-								</div>
-								<div class="cert-grid">
-									{deepLearning.courses.map(cert => (
-										<div class="cv-cert-card" onclick={`window.openLightbox('/assets/cv/certificates/${cert.img}')`}>
-											<div class="cv-cert-img-box">
-												<img src={`/assets/cv/certificates/${cert.img}`} alt={cert.name} loading="lazy" />
-											</div>
-											<div class="cv-cert-meta">
-												<h5>{cert.name}</h5>
-											</div>
-										</div>
-									))}
-								</div>
-							</div>
-						</div>
-					</details>
-				)}
 
 				{item.images && item.images.map(img => (
 					<img src={img.src} alt={img.alt} style="width: 100%; max-width: 450px; border-radius: 8px; margin-top: 1rem;" />
