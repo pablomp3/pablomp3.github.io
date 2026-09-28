@@ -32,17 +32,220 @@
   ],
   "drawings": [
     {
-      "name": "Sketch with Guitar",
-      "img": "pablo_sketch_with_guitar.jpg",
-      "alt": "Sketch with Guitar"
+      "title": "Rafa (crayon)",
+      "date": "Jun 2026",
+      "rawDate": "20260613",
+      "img": "/assets/sketches/20260613-Rafa-crayon-painting.jpeg",
+      "alt": "Rafa (crayon)"
+    },
+    {
+      "title": "Kyoto, Japan",
+      "date": "May 2026",
+      "rawDate": "20260509",
+      "img": "/assets/sketches/20260509-Kyoto-Japan.jpeg",
+      "alt": "Sketch in Kyoto, Japan"
+    },
+    {
+      "title": "Shirakawa-gō, Japan",
+      "date": "May 2026",
+      "rawDate": "20260508",
+      "img": "/assets/sketches/20260508-Shirakawa-go-Japan.jpeg",
+      "alt": "Sketch of Shirakawa-go, Japan"
+    },
+    {
+      "title": "Rainy Street in Sydney, Australia",
+      "date": "Apr 2026",
+      "rawDate": "20260425",
+      "img": "/assets/sketches/20260425-rainy-street-Sydney.jpeg",
+      "alt": "Rainy street in Sydney, Australia"
+    },
+    {
+      "title": "Melbourne's skyline, Australia",
+      "date": "May 2025",
+      "rawDate": "20250504",
+      "img": "/assets/sketches/20250504-Melbourne-skyline-Australia.jpeg",
+      "alt": "Melbourne's skyline, Australia"
+    },
+    {
+      "title": "Clara in Melbourne, Australia",
+      "date": "May 2025",
+      "rawDate": "20250501",
+      "img": "/assets/sketches/20250501-Clara-Melbourne.jpeg",
+      "alt": "Clara in Melbourne, Australia"
+    },
+    {
+      "title": "Nacho in Sydney, Australia",
+      "date": "Apr 2025",
+      "rawDate": "20250424",
+      "img": "/assets/sketches/20250424-Nacho-Sydney.jpeg",
+      "alt": "Nacho in Sydney, Australia"
+    },
+    {
+      "title": "Busan Citizens Park, Korea",
+      "date": "Nov 2023",
+      "rawDate": "20231125",
+      "img": "/assets/sketches/20231125-Busan-citizens-park-Korea.jpeg",
+      "alt": "Busan Citizens Park, Korea"
+    },
+    {
+      "title": "Temple in Kaohsiung, Taiwan",
+      "date": "Oct 2019",
+      "rawDate": "20191019",
+      "img": "/assets/sketches/20191019-Kaohsiung-Taiwan.jpeg",
+      "alt": "Temple in Kaohsiung, Taiwan"
+    },
+    {
+      "title": "Banyan tree in Kaohsiung, Taiwan",
+      "date": "Oct 2019",
+      "rawDate": "20191002",
+      "img": "/assets/sketches/201910-arbol-Kaohsiung-Taiwan.jpeg",
+      "alt": "Banyan tree in Kaohsiung, Taiwan"
+    },
+    {
+      "title": "Sleeping man in Kaohsiung, Taiwan",
+      "date": "Oct 2019",
+      "rawDate": "20191001",
+      "img": "/assets/sketches/201910-Senor-dormido-Kaohsiung-Taiwan.jpeg",
+      "alt": "Sleeping man in Kaohsiung, Taiwan"
+    },
+    {
+      "title": "Anping Fort in Tainan, Taiwan",
+      "date": "Jul 2019",
+      "rawDate": "20190701",
+      "img": "/assets/sketches/201907-Anping-fort-Tainan-Taiwan.jpeg",
+      "alt": "Anping Fort in Tainan, Taiwan"
+    },
+    {
+      "title": "Bingru in Houli, Taiwan",
+      "date": "May 2019",
+      "rawDate": "20190526",
+      "img": "/assets/sketches/20190526-Bingru-Houli-Taiwan.jpeg",
+      "alt": "Bingru in Houli, Taiwan"
+    },
+    {
+      "title": "NTHU Dorm Room in Hsinchu, Taiwan",
+      "date": "Apr 2019",
+      "rawDate": "20190427",
+      "img": "/assets/sketches/20190427-dorm-Hsinchu-Taiwan.jpeg",
+      "alt": "NTHU dorm room in Hsinchu, Taiwan"
+    },
+    {
+      "title": "National Theater in Taipei, Taiwan",
+      "date": "Apr 2019",
+      "rawDate": "20190426",
+      "img": "/assets/sketches/20190426-National-theatre-Taipei-Taiwan.jpeg",
+      "alt": "National Theater in Taipei, Taiwan"
+    },
+    {
+      "title": "Park sketch in Taipei, Taiwan",
+      "date": "Oct 2018",
+      "rawDate": "20181026",
+      "img": "/assets/sketches/20181026-park-Taipei-Taiwan.jpeg",
+      "alt": "Park sketch in Taipei, Taiwan"
+    },
+    {
+      "title": "View from Elephant Mountain in Taipei, Taiwan",
+      "date": "Oct 2018",
+      "rawDate": "20181003",
+      "img": "/assets/sketches/201810-view-from-elephant-mountain-Taipei-Taiwan.jpeg",
+      "alt": "View from Elephant Mountain in Taipei, Taiwan"
+    },
+    {
+      "title": "Park sketch II in Taipei, Taiwan",
+      "date": "Oct 2018",
+      "rawDate": "20181002",
+      "img": "/assets/sketches/201810-park2-Taipei-Taiwan.jpeg",
+      "alt": "Park sketch II in Taipei, Taiwan"
+    },
+    {
+      "title": "Huashan Creative Park in Taipei, Taiwan",
+      "date": "Oct 2018",
+      "rawDate": "20181001",
+      "img": "/assets/sketches/201810-Huashan-creative-park-Taipei-Taiwan.jpeg",
+      "alt": "Huashan Creative Park in Taipei, Taiwan"
+    },
+    {
+      "title": "NTHU Physics Building in Hsinchu, Taiwan",
+      "date": "Sep 2018",
+      "rawDate": "20180901",
+      "img": "/assets/sketches/201809-NTHU-physics-building-Hsinchu-Taiwan.jpeg",
+      "alt": "NTHU Physics Building in Hsinchu, Taiwan"
+    },
+    {
+      "title": "Shinta smoking in Beijing, China",
+      "date": "Dec 2017",
+      "rawDate": "20171206",
+      "img": "/assets/sketches/20171206-Shinta-smoking-Beijing-China.jpeg",
+      "alt": "Shinta smoking in Beijing, China"
+    },
+    {
+      "title": "Franco eating a fried egg",
+      "date": "Mar 2017",
+      "rawDate": "20170301",
+      "img": "/assets/sketches/201703-Franco-eating-fried-eggs.jpeg",
+      "alt": "Franco eating a fried egg"
+    },
+    {
+      "title": "Orchestra Director",
+      "date": "Jun 2016",
+      "rawDate": "20160619",
+      "img": "/assets/sketches/20160619-orchestra-director.jpeg",
+      "alt": "Orchestra director"
+    },
+    {
+      "title": "Suzhou fish market, China",
+      "date": "May 2016",
+      "rawDate": "20160501",
+      "img": "/assets/sketches/201605-Suzhou-fish-market-China.jpeg",
+      "alt": "Suzhou fish market, China"
+    },
+    {
+      "title": "Dalí, Lorca and Buñuel",
+      "date": "Mar 2016",
+      "rawDate": "20160302",
+      "img": "/assets/sketches/201603-Dali-Lorca-and-Bunuel-posing-together.jpeg",
+      "alt": "Dali, Lorca and Bunuel"
+    },
+    {
+      "title": "Buena Vista Social Club inspired sketch",
+      "date": "Mar 2016",
+      "rawDate": "20160301",
+      "img": "/assets/sketches/201603-Buenavista-Social-Club-inspired-sketch.jpeg",
+      "alt": "Buena Vista Social Club inspired sketch"
+    },
+    {
+      "title": "Duarte in Inner Mongolia, China",
+      "date": "Nov 2015",
+      "rawDate": "20151120",
+      "img": "/assets/sketches/20151120-Duarte-in-Inner-Mongolia-China.jpeg",
+      "alt": "Duarte in Inner Mongolia, China"
+    },
+    {
+      "title": "Don Quixote dreams of Dalí",
+      "date": "Dec 2014",
+      "rawDate": "20141231",
+      "img": "/assets/sketches/20141231-Don-Quixote-dreams-of-Dali.jpeg",
+      "alt": "Don Quixote dreams of Dali"
     }
   ],
   "scubaDiving": {
     "sites": [
-      { "country": "Taiwan", "locations": "Xiaoliuqiu, Green Island (綠島), Kenting" },
-      { "country": "Thailand", "locations": "Racha Island (Phuket), Phi Phi Island" },
-      { "country": "Indonesia", "locations": "Komodo Island" },
-      { "country": "Malaysia", "locations": "Sabah" }
+      {
+        "country": "Taiwan",
+        "locations": "Xiaoliuqiu, Green Island (綠島), Kenting"
+      },
+      {
+        "country": "Thailand",
+        "locations": "Racha Island (Phuket), Phi Phi Island"
+      },
+      {
+        "country": "Indonesia",
+        "locations": "Komodo Island"
+      },
+      {
+        "country": "Malaysia",
+        "locations": "Sabah"
+      }
     ],
     "photos": [
       {
@@ -57,8 +260,16 @@
       }
     ],
     "certs": [
-      { "name": "PADI Open Water", "img": "PADI.jpeg", "date": "Certification" },
-      { "name": "PADI Advanced Open Water", "img": "PADI.jpeg", "date": "Certification" }
+      {
+        "name": "PADI Open Water",
+        "img": "PADI.jpeg",
+        "date": "Certification"
+      },
+      {
+        "name": "PADI Advanced Open Water",
+        "img": "PADI.jpeg",
+        "date": "Certification"
+      }
     ]
   }
 }

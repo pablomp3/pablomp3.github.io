@@ -7,27 +7,27 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 
 <Layout title="Pablo | Machine Learning Engineer">
 	<!-- HERO -->
-	<div class="flex flex-col gap-4">
-		<h1>{hero.title}</h1>
-		<p class="text-secondary hero-intro" style="font-size: 1.05rem; max-width: 650px; line-height: 1.7;" set:html={hero.intro} />
+	<div class="flex flex-col">
+		<h1 class="hero-name">{hero.title}</h1>
+		<p class="hero-intro text-secondary" set:html={hero.intro} />
 		
-		<div style="font-size: 1.05rem; max-width: 650px; line-height: 1.7; margin-top: -0.5rem;">
-			<p class="mb-6 text-secondary" set:html={engineeringFocus.lead} />
-			<ul class="text-secondary" style="margin-left: 2rem; list-style-type: disc;">
+		<div class="engineering-section">
+			<p class="focus-lead text-secondary" set:html={engineeringFocus.lead} />
+			<ul class="focus-list text-secondary">
 				{engineeringFocus.areas.map(area => (
-					<li class="mb-8 pl-1">
-						<strong class="text-primary block">{area.title}</strong>
-						<div class="mt-1" set:html={area.description} />
+					<li class="focus-item">
+						<strong class="focus-title text-primary">{area.title}</strong>
+						<div class="focus-desc text-secondary" set:html={area.description} />
 					</li>
 				))}
 			</ul>
 		</div>
 
-		<div class="social-row font-mono text-secondary" style="margin-top: 0.5rem;">
-			<span>Find me on:</span>
+		<div class="social-row text-secondary">
+			<span class="social-label">Find me on:</span>
 			{hero.socialLinks.map((link, idx) => (
 				<>
-					{idx > 0 && <span>•</span>}
+					{idx > 0 && <span class="social-sep">•</span>}
 					<a href={link.url} target={link.target || undefined} rel={link.target ? "noopener noreferrer" : undefined}>
 						{link.name}
 					</a>
@@ -39,12 +39,12 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 	<!-- SAY HI / COFFEE CHAT -->
 	<div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
 		<div class="mb-6" style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); max-width: 650px;">
-			<h3 class="mb-3">{coffeeChat.title}</h3>
-			<p class="mb-3 text-secondary" style="font-size: 1rem; line-height: 1.7;">
+			<h3 class="mb-3" style="font-size: 1.15rem;">{coffeeChat.title}</h3>
+			<p class="mb-3 text-secondary" style="font-size: 0.95rem; line-height: 1.65;">
 				{coffeeChat.description}
 			</p>
-			<p class="mb-4 text-secondary" style="font-size: 1rem; line-height: 1.7;" set:html={coffeeChat.mentorship} />
-			<p class="mb-3 text-secondary" style="font-size: 1rem; font-weight: 500;">
+			<p class="mb-4 text-secondary" style="font-size: 0.95rem; line-height: 1.65;" set:html={coffeeChat.mentorship} />
+			<p class="mb-3 text-secondary" style="font-size: 0.95rem; font-weight: 500;">
 				{coffeeChat.invitation}
 			</p>
 			<div class="flex flex-wrap gap-4 font-mono text-sm" style="margin-top: 1.5rem;">
@@ -58,9 +58,117 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 	</div>
 </Layout>
 
-<style is:global>
-	.hero-intro strong {
+<style>
+	.hero-name {
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.75rem;
+		color: var(--text-primary);
+	}
+
+	.hero-intro {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		max-width: 650px;
+		margin-bottom: 1.5rem;
+		color: var(--text-secondary);
+	}
+
+	.hero-intro :global(strong) {
 		color: var(--text-primary);
 		font-weight: 600;
+	}
+
+	.engineering-section {
+		max-width: 650px;
+		margin-bottom: 1.75rem;
+	}
+
+	.focus-lead {
+		font-size: 0.95rem;
+		line-height: 1.6;
+		margin-bottom: 1.25rem;
+		color: var(--text-secondary);
+	}
+
+	.focus-list {
+		margin-left: 1.75rem;
+		list-style-type: disc;
+	}
+
+	.focus-item {
+		margin-bottom: 1.75rem;
+		padding-left: 0.25rem;
+	}
+
+	.focus-title {
+		display: block;
+		font-size: 1rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		color: var(--text-primary);
+		margin-bottom: 0.35rem;
+	}
+
+	.focus-desc {
+		font-size: 0.95rem;
+		line-height: 1.65;
+		color: var(--text-secondary);
+	}
+
+	.social-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem 0.6rem;
+		font-size: 0.9rem;
+		font-family: inherit; /* Unify with Inter sans-serif */
+		margin-top: 0.25rem;
+	}
+
+	.social-label {
+		color: var(--text-muted);
+	}
+
+	.social-sep {
+		color: var(--text-muted);
+		opacity: 0.5;
+	}
+
+	@media (max-width: 640px) {
+		.hero-name {
+			font-size: 1.65rem;
+		}
+
+		.hero-intro {
+			font-size: 1rem;
+			margin-bottom: 1.25rem;
+		}
+
+		.focus-lead {
+			font-size: 0.92rem;
+			margin-bottom: 1rem;
+		}
+
+		.focus-list {
+			margin-left: 1.25rem;
+		}
+
+		.focus-item {
+			margin-bottom: 1.5rem;
+		}
+
+		.focus-title {
+			font-size: 0.98rem;
+		}
+
+		.focus-desc {
+			font-size: 0.92rem;
+		}
+
+		.social-row {
+			font-size: 0.85rem;
+		}
 	}
 </style>

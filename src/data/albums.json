@@ -138,6 +138,12 @@
     "cover": "neutral_milk_hotel_aeroplane.jpg"
   },
   {
+    "year": 1997,
+    "title": "Buena Vista Social Club",
+    "artist": "Buena Vista Social Club",
+    "cover": "buena_vista_social_club.jpg"
+  },
+  {
     "year": 1995,
     "title": "Vivadixiesubmarinetransmissionplot",
     "artist": "Sparklehorse",
@@ -170,7 +176,7 @@
   {
     "year": 1977,
     "title": "Brossa d'ahir",
-    "artist": "Pep Laguarda & Tapís",
+    "artist": "Pep Laguarda & Tapineria",
     "cover": "brossa_dahir.jpg"
   },
   {

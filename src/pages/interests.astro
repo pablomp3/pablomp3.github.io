@@ -16,10 +16,10 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 	<!-- SUB-NAVIGATION -->
 	<nav class="interest-nav font-mono text-sm" aria-label="Interests Sub-navigation">
 		<a href="#beyond-the-terminal" class="tag">#beyond-the-terminal</a>
+		<a href="#scuba-diving" class="tag">#scuba-diving</a>
 		<a href="#music" class="tag">#music</a>
 		<a href="#reading" class="tag">#reading</a>
 		<a href="#drawings" class="tag">#drawings</a>
-		<a href="#scuba-diving" class="tag">#scuba-diving</a>
 	</nav>
 
 	<!-- BEYOND THE TERMINAL -->
@@ -31,6 +31,46 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 					<li class="mb-1" set:html={item} />
 				))}
 			</ul>
+		</div>
+	</section>
+
+	<!-- SCUBA DIVING -->
+	<section id="scuba-diving" class="interest-section mb-16" style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
+		<h2 class="mb-3">Scuba Diving</h2>
+		<!-- Dive Sites -->
+		<div class="mb-6">
+			<p class="text-secondary mb-2" style="max-width: 650px; font-size: 0.95rem; line-height: 1.6;">
+				I hold PADI Open Water and Advanced Open Water certificates. Sites where I have dived:
+			</p>
+			<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc; line-height: 1.75; font-size: 0.92rem; max-width: 650px;">
+				{interestsData.scubaDiving.sites.map(site => (
+					<li class="mb-1"><strong class="text-primary">{site.country}:</strong> {site.locations}</li>
+				))}
+			</ul>
+		</div>
+
+		<!-- Diving Photos Grid -->
+		<div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; max-width: 680px;">
+			{interestsData.scubaDiving.photos.map(photo => (
+				<div 
+					class="list-item" 
+					style="padding: 0.75rem; display: flex; flex-direction: column; margin-bottom: 0; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease;" 
+					onclick={`window.openLightbox('/assets/interests/diving/${photo.img}')`}
+					onmouseover="this.style.borderColor='var(--text-muted)'; this.style.transform='translateY(-2px)'"
+					onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'"
+				>
+					<div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; background: var(--border-color);">
+						<img 
+							src={`/assets/interests/diving/${photo.img}`} 
+							alt={photo.alt} 
+							style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease;" 
+							onmouseover="this.style.transform='scale(1.03)'" 
+							onmouseout="this.style.transform='scale(1)'" 
+						/>
+					</div>
+					<span class="font-mono text-muted text-xs mt-2" style="font-size: 0.78rem;">{photo.name}</span>
+				</div>
+			))}
 		</div>
 	</section>
 
@@ -111,7 +151,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 
 			<div class="album-grid">
 				{albums.map(album => (
-					<div class="list-item album-tile" style="padding: 0.75rem; display: flex; flex-direction: column; margin-bottom: 0;">
+					<div class="list-item album-tile">
 						<a 
 							href={`https://www.youtube.com/results?search_query=${encodeURIComponent(album.artist + ' ' + album.title + ' full album')}`}
 							target="_blank" 
@@ -127,12 +167,10 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 								/>
 							</div>
 						</a>
-						<div style="flex-grow: 1; display: flex; flex-direction: column; margin-top: 0.65rem;">
-							<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.35rem; margin-bottom: 0.2rem;">
-								<h4 class="album-title-text">{album.title}</h4>
-								<span class="font-mono text-muted" style="font-size: 0.75rem; flex-shrink: 0;">[{album.year}]</span>
-							</div>
-							<span class="text-secondary" style="font-size: 0.82rem; overflow-wrap: anywhere; word-break: break-word;">{album.artist}</span>
+						<div class="album-info">
+							<span class="font-mono text-muted album-year">[{album.year}]</span>
+							<h4 class="album-title-text">{album.title}</h4>
+							<span class="text-secondary album-artist">{album.artist}</span>
 						</div>
 					</div>
 				))}
@@ -185,55 +223,29 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 
 	<!-- DRAWINGS -->
 	<section id="drawings" class="interest-section mb-16" style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
-		<h2 class="mb-3">Drawings & Visual Art</h2>
-		<p class="text-secondary mb-6" style="max-width: 600px; font-size: 0.95rem;">
-			Sketches and visual experiments outside of code and audio circuits.
+		<h2 class="mb-3">Drawings & Sketches</h2>
+		<p class="text-secondary mb-6" style="max-width: 650px; font-size: 0.95rem; line-height: 1.7;">
+			Sketches and visual experiments across my travels and daily life. Click any sketch to expand.
 		</p>
-		<div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; max-width: 650px;">
+		<div class="sketch-grid">
 			{interestsData.drawings.map(d => (
-				<div class="list-item" style="padding: 1rem; display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 0;">
-					<img src={`/assets/interests/art/${d.img}`} alt={d.alt} style="width: 100%; height: auto; border-radius: 4px; margin-bottom: 0.75rem; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="window.openLightbox(this.src)" />
-					<h4 style="font-size: 0.95rem; margin: 0;">{d.name}</h4>
-				</div>
-			))}
-		</div>
-	</section>
-
-	<!-- SCUBA DIVING -->
-	<section id="scuba-diving" class="interest-section mb-16" style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
-		<h2 class="mb-3">Scuba Diving</h2>
-		<!-- Dive Sites -->
-		<div class="mb-6">
-			<p class="text-secondary mb-2" style="max-width: 650px; font-size: 0.95rem; line-height: 1.6;">
-				I hold PADI Open Water and Advanced Open Water certificates. Sites where I have dived:
-			</p>
-			<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc; line-height: 1.75; font-size: 0.92rem; max-width: 650px;">
-				{interestsData.scubaDiving.sites.map(site => (
-					<li class="mb-1"><strong class="text-primary">{site.country}:</strong> {site.locations}</li>
-				))}
-			</ul>
-		</div>
-
-		<!-- Diving Photos Grid -->
-		<div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; max-width: 680px;">
-			{interestsData.scubaDiving.photos.map(photo => (
 				<div 
-					class="list-item" 
-					style="padding: 0.75rem; display: flex; flex-direction: column; margin-bottom: 0; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease;" 
-					onclick={`window.openLightbox('/assets/interests/diving/${photo.img}')`}
-					onmouseover="this.style.borderColor='var(--text-muted)'; this.style.transform='translateY(-2px)'"
-					onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'"
+					class="list-item sketch-tile"
+					onclick={`window.openLightbox('${d.img}')`}
+					title={`Click to expand ${d.title}`}
 				>
-					<div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; background: var(--border-color);">
+					<div class="sketch-cover-wrapper">
 						<img 
-							src={`/assets/interests/diving/${photo.img}`} 
-							alt={photo.alt} 
-							style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease;" 
-							onmouseover="this.style.transform='scale(1.03)'" 
-							onmouseout="this.style.transform='scale(1)'" 
+							src={d.img} 
+							alt={d.alt} 
+							loading="lazy" 
 						/>
+						<div class="sketch-expand-hint font-mono">Expand ↗</div>
 					</div>
-					<span class="font-mono text-muted text-xs mt-2" style="font-size: 0.78rem;">{photo.name}</span>
+					<div class="sketch-info">
+						<span class="font-mono text-muted sketch-date">[{d.date}]</span>
+						<h4 class="sketch-title-text">{d.title}</h4>
+					</div>
 				</div>
 			))}
 		</div>
@@ -424,31 +436,79 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			gap: 1.25rem;
 		}
 
-		@media (max-width: 640px) {
-			.album-grid {
-				gap: 0.5rem; /* slightly tighter gap for mobile while keeping 4 cols */
-			}
-		}
-
 		.album-tile {
 			min-width: 0;
 			overflow: hidden;
+			padding: 0.75rem;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 0;
 			transition: border-color 0.2s ease, transform 0.2s ease;
-		}
-
-		.album-title-text {
-			font-size: 0.88rem;
-			line-height: 1.35;
-			margin: 0;
-			font-weight: 600;
-			overflow-wrap: anywhere;
-			word-break: break-word;
-			hyphens: auto;
 		}
 
 		.album-tile:hover {
 			border-color: var(--text-muted);
 			transform: translateY(-2px);
+		}
+
+		.album-info {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			margin-top: 0.55rem;
+			gap: 0.15rem;
+		}
+
+		.album-year {
+			font-size: 0.72rem;
+			line-height: 1.2;
+		}
+
+		.album-title-text {
+			font-size: 0.82rem;
+			line-height: 1.3;
+			margin: 0;
+			font-weight: 600;
+			color: var(--text-primary);
+			overflow-wrap: anywhere;
+			word-break: break-word;
+			hyphens: auto;
+		}
+
+		.album-artist {
+			font-size: 0.76rem;
+			line-height: 1.3;
+			overflow-wrap: anywhere;
+			word-break: break-word;
+		}
+
+		@media (max-width: 640px) {
+			.album-grid {
+				gap: 0.45rem;
+			}
+
+			.album-tile {
+				padding: 0.35rem !important;
+			}
+
+			.album-info {
+				margin-top: 0.35rem;
+				gap: 0.1rem;
+			}
+
+			.album-year {
+				font-size: 0.64rem;
+			}
+
+			.album-title-text {
+				font-size: 0.72rem;
+				line-height: 1.2;
+			}
+
+			.album-artist {
+				font-size: 0.68rem;
+				line-height: 1.2;
+			}
 		}
 
 		.album-cover-link {
@@ -485,6 +545,118 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			color: var(--accent-color);
 			text-decoration: underline;
 			text-underline-offset: 3px;
+		}
+
+		/* SKETCHES (2 columns layout) */
+		.sketch-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1.5rem;
+		}
+
+		.sketch-tile {
+			min-width: 0;
+			overflow: hidden;
+			padding: 0.85rem;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 0;
+			cursor: pointer;
+			transition: border-color 0.2s ease, transform 0.2s ease;
+		}
+
+		.sketch-tile:hover {
+			border-color: var(--text-muted);
+			transform: translateY(-2px);
+		}
+
+		.sketch-cover-wrapper {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 1/1;
+			overflow: hidden;
+			border-radius: 6px;
+			background: var(--border-color);
+		}
+
+		.sketch-cover-wrapper img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.25s ease;
+		}
+
+		.sketch-tile:hover .sketch-cover-wrapper img {
+			transform: scale(1.05);
+		}
+
+		.sketch-expand-hint {
+			position: absolute;
+			bottom: 0.5rem;
+			right: 0.5rem;
+			background: rgba(0, 0, 0, 0.75);
+			color: #ffffff;
+			font-size: 0.7rem;
+			padding: 0.2rem 0.45rem;
+			border-radius: 4px;
+			opacity: 0;
+			transform: translateY(-2px);
+			transition: opacity 0.2s ease, transform 0.2s ease;
+			pointer-events: none;
+		}
+
+		.sketch-tile:hover .sketch-expand-hint {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.sketch-info {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			margin-top: 0.65rem;
+			gap: 0.2rem;
+		}
+
+		.sketch-date {
+			font-size: 0.75rem;
+			line-height: 1.2;
+		}
+
+		.sketch-title-text {
+			font-size: 0.88rem;
+			line-height: 1.35;
+			margin: 0;
+			font-weight: 600;
+			color: var(--text-primary);
+			overflow-wrap: anywhere;
+			word-break: break-word;
+			hyphens: auto;
+		}
+
+		@media (max-width: 640px) {
+			.sketch-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 0.75rem;
+			}
+
+			.sketch-tile {
+				padding: 0.5rem !important;
+			}
+
+			.sketch-info {
+				margin-top: 0.45rem;
+				gap: 0.15rem;
+			}
+
+			.sketch-date {
+				font-size: 0.68rem;
+			}
+
+			.sketch-title-text {
+				font-size: 0.78rem;
+				line-height: 1.25;
+			}
 		}
 
 		@media (max-width: 540px) {
