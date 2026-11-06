@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 
 const allTalks = await getCollection('talks');
 const items = allTalks
+	.filter(talk => !talk.data.unlisted)
 	.map(talk => ({
 		type: talk.data.type,
 		title: talk.data.title,

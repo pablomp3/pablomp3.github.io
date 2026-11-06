@@ -4,28 +4,23 @@ pageTitle: "AutoML: Evolving Neural Networks | Pablo"
 type: "Talk"
 date: "Oct 2021"
 timestamp: "2021-10"
-description: "An evolutionary algorithm approach to Automated Machine Learning (AutoML), optimizing neural network architectures for production pipelines."
+unlisted: true
+description: "A 2021 talk on AutoML, neural architecture search, and the practical importance of data in machine learning."
 slides:
   heading: "Presentation Slides"
   src: "/assets/talks/automl/Evolving_Neural_Networks.pdf"
 ---
 
-## The Problem
+## Why this talk?
 
-Designing a neural network usually involves a lot of manual guesswork. Why 3 hidden layers instead of 5? Why 128 neurons instead of 256? Why ReLU instead of GELU?
+In 2021, I presented an introduction to AutoML and neural architecture search at Titansoft’s internal TechDays. I wanted to explore a question: can we automate the design of neural networks, and what does that actually buy a team working on real problems?
 
-Data scientists spend days running trial-and-error experiments, changing one hyperparameter at a time, and often settling for whatever baseline works reasonably well without knowing if a better topology exists.
+## The idea
 
-## The Approach & Architecture
+Neural architecture search explores different network designs instead of relying entirely on choices made by hand. But training many candidate networks can be expensive. The talk looked at research on scoring architectures **without training them**, as one way to reduce that cost.
 
-For Titansoft's internal TechDays 2021, I walked our engineering teams through Automated Machine Learning (AutoML) using evolutionary algorithms—letting biological principles discover network architectures:
+## My takeaway
 
-- **Networks as Genomes:** Each model architecture (number of layers, node counts, connection paths, and activations) is encoded as a set of genetic parameters.
-- **Fitness Evaluation:** A population of candidate models trains on the problem dataset. Each model's validation performance serves as its biological fitness score.
-- **Selection, Crossover & Mutation:** The top-performing architectures survive and "breed" intermediate candidates, with random mutations introducing structural changes (such as adding skip connections or changing filter sizes) over successive generations.
+AutoML is interesting, but it doesn’t make the hard parts of machine learning disappear. Data collection, cleaning, labeling, and feature work still matter—and an automated search doesn’t guarantee a better model than a thoughtfully designed baseline. For an industry team, improving the data may be a better place to spend the next hour.
 
-## Outcome & What I Learned
-
-The presentation helped our data science and engineering groups evaluate how and when to incorporate automated architecture search into production workflows.
-
-**Key Takeaway:** Evolutionary algorithms are simple to conceptualize and naturally parallel, but brute-force searches can easily burn through cloud budgets. In real-world engineering, the winning approach is hybrid: use engineering intuition to define strict architectural boundaries first, then use evolution to fine-tune the interior hyperparameters.
+For more details, check out the presentation slides below.

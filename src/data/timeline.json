@@ -5,7 +5,8 @@
     "org": "Micron Technology",
     "location": "Taiwan",
     "highlights": [
-      "I work as <strong>Senior Machine Learning Engineer</strong> at the intersection between <strong>ML & Semiconductors</strong>, designing and building scalable ML pipelines and <strong>agents</strong>.",
+      "<strong>Staff AI/ML Engineer</strong> (promoted from <strong>Senior ML Engineer</strong> in 2026): I design agents and MCPs to troubleshoot manufacturing defects, and build scalable ML pipelines to detect them!",
+      "Besides the cool projects, I spend time on architecture and mentoring other engineers.",
       "Regular attendee and <a href=\"/talk/keep-audio\">speaker at PyCon TW</a>."
     ]
   },
@@ -84,7 +85,7 @@
     "org": "EDP",
     "location": "Spain",
     "highlights": [
-      "Internship at the <strong>Abo\u00f1o Thermal Power Plant</strong> in northern Spain. I assisted turbine renovations that boosted efficiency by >4%."
+      "Internship at the <strong>Aboño Thermal Power Plant</strong> in northern Spain. I assisted turbine renovations that boosted efficiency by >4%."
     ]
   },
   {
@@ -113,8 +114,8 @@
     "org": "University of Oviedo",
     "location": "Spain",
     "highlights": [
-      "Moved to the Spanish northern coast in <a href=\"https://www.google.com/maps/place/Gij%C3%B3n,+Asturias,+Spain/\" target=\"_blank\" rel=\"noopener noreferrer\">Gij\u00f3n</a> to study <strong>Electronic and Automation Engineering</strong>.",
-      "Built a <a href=\"/talk/sound-processor\">programmable digital effects</a> pedal from scratch for my thesis\u2014kicking off my interest in <strong>audio hardware and DSP</strong>."
+      "Moved to the Spanish northern coast in <a href=\"https://www.google.com/maps/place/Gij%C3%B3n,+Asturias,+Spain/\" target=\"_blank\" rel=\"noopener noreferrer\">Gijón</a> to study <strong>Electronic and Automation Engineering</strong>.",
+      "Built a <a href=\"/talk/sound-processor\">programmable digital effects</a> pedal from scratch for my thesis—kicking off my interest in <strong>audio hardware and DSP</strong>."
     ],
     "images": [
       {
@@ -131,7 +132,7 @@
     "id": "early-years",
     "org": "Early Years",
     "highlights": [
-      "Born in <a href=\"https://www.google.com/maps/place/Ponferrada,+Le\u00f3n,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Ponferrada</a>. Growing up, I moved around and lived in <a href=\"https://www.google.com/maps/place/Macotera,+Salamanca,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Macotera</a> (Salamanca), <a href=\"https://www.google.com/maps/place/Sahag\u00fan,+Le\u00f3n,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Sahag\u00fan</a> (Le\u00f3n), and <a href=\"https://www.google.com/maps/place/Set\u00fabal,+Portugal\" target=\"_blank\" rel=\"noopener noreferrer\">Set\u00fabal</a> (Portugal)\u2014just south of Lisbon, right after crossing the interminable Vasco da Gama bridge.",
+      "Born in <a href=\"https://www.google.com/maps/place/Ponferrada,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Ponferrada</a>. Growing up, I moved around and lived in <a href=\"https://www.google.com/maps/place/Macotera,+Salamanca,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Macotera</a> (Salamanca), <a href=\"https://www.google.com/maps/place/Sahagún,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Sahagún</a> (León), and <a href=\"https://www.google.com/maps/place/Setúbal,+Portugal\" target=\"_blank\" rel=\"noopener noreferrer\">Setúbal</a> (Portugal)—just south of Lisbon, right after crossing the interminable Vasco da Gama bridge.",
       "When I was 9, I <strong>visited China (Beijing and Yunnan) for the first time</strong> with my parents. It must have left a lasting impression on me, as I would end up moving back to live there for almost two years later in life."
     ]
   }

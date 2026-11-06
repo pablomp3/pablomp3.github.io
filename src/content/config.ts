@@ -10,6 +10,7 @@ const talks = defineCollection({
     date: z.string(),
     timestamp: z.string(),
     description: z.string(),
+    unlisted: z.boolean().default(false),
     links: z.array(
       z.object({
         text: z.string(),

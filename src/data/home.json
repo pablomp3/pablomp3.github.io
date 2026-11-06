@@ -1,8 +1,7 @@
 {
   "hero": {
     "title": "Hi, I'm Pablo.",
-    "intro": "<strong>Machine Learning Engineer</strong> from \ud83c\uddea\ud83c\uddf8 Spain, based in \ud83c\uddf9\ud83c\uddfc Taiwan and working in the semiconductor industry.",
-    "specialization": "I build production-grade ML systems, specializing in data pipelines, MLOps, CI/CD, IaC (Infrastructure as Code), and autonomous agentic workflows.",
+    "intro": "<strong>Staff AI/ML Engineer</strong> from 🇪🇸 Spain, based in 🇹🇼 Taiwan. I build ML systems for semiconductors and music tools for fun.",
     "socialLinks": [
       {
         "name": "LinkedIn",
@@ -32,18 +31,18 @@
   },
   "engineeringFocus": {
     "title": "Engineering Focus",
-    "lead": "With a <a href=\"/cv\">formal background in EECS</a>, I have worked across the US, Spain, Portugal, China, and Taiwan on:",
+    "lead": "With a <a href=\"/cv\">background in EECS</a>, I have worked across the US, Spain, Portugal, China, and Taiwan on:",
     "areas": [
       {
-        "title": "Production ML & Infrastructure",
+        "title": "Production ML",
         "description": "Designing end-to-end ML pipelines, automating deployment with CI/CD, Infrastructure as Code (IaC), and MLOps."
       },
       {
-        "title": "Agent Development & Applied AI",
-        "description": "Building agentic systems, LLM-driven tooling, and behavioral analytics / fraud detection systems."
+        "title": "Agents & Applied AI",
+        "description": "Building agentic systems, MCPs, LLM-driven tooling, and fraud detection systems."
       },
       {
-        "title": "Audio & Creative Tech",
+        "title": "Music",
         "description": "Research in <a href=\"/talk/polyphonic-music\">deep learning for music generation</a>, building <a href=\"/talk/sound-processor\">hardware for electric guitar</a>, and developing <a href=\"/talk/keep-audio\">tools for musicians</a>."
       }
     ]
@@ -51,7 +50,7 @@
   "coffeeChat": {
     "title": "Say Hi / Coffee Chat",
     "description": "I enjoy meeting new people and keep an open door for anyone curious about moving to Taiwan, breaking into machine learning and semiconductors, or hacking on music tech and audio hardware.",
-    "mentorship": "Over the past few years, I\u2019ve also mentored university students through <a href=\"https://www.imfahe.org\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline;\">IMFAHE</a>.",
+    "mentorship": "Over the past few years, I’ve also mentored university students through <a href=\"https://www.imfahe.org\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline;\">IMFAHE</a>.",
     "invitation": "Feel free to grab a slot on my calendar to chat:",
     "bookingLinks": [
       {

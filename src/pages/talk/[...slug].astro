@@ -35,11 +35,11 @@ const talkImage = entry.data.artifacts && entry.data.artifacts.length > 0
 	</div>
 
 	{hasResources && (
-		<section class="mb-12 mt-12">
-			<h2 class="mb-4">Resources & Artifacts</h2>
+		<section class="resources-section mt-16 pt-12" style="border-top: 1px solid var(--border-color);">
+			<h2 class="mb-6" style="font-size: 1.35rem; font-weight: 600;">Resources & Artifacts</h2>
 			
 			{entry.data.links && entry.data.links.length > 0 && (
-				<div class="flex flex-col gap-3 mb-10">
+				<div class="flex flex-col gap-3 mb-12">
 					{entry.data.links.map(link => (
 						<a 
 							href={link.url} 
@@ -56,8 +56,8 @@ const talkImage = entry.data.artifacts && entry.data.artifacts.length > 0
 			)}
 
 			{entry.data.artifacts && entry.data.artifacts.map(art => (
-				<div class="mb-8">
-					<h3 class="mb-3" style="font-size: 1.05rem;">{art.heading}</h3>
+				<div class="mb-10">
+					<h3 class="mb-3" style="font-size: 1.1rem; font-weight: 600;">{art.heading}</h3>
 					<img 
 						src={art.src} 
 						alt={art.alt} 
@@ -67,9 +67,9 @@ const talkImage = entry.data.artifacts && entry.data.artifacts.length > 0
 			))}
 
 			{entry.data.slides && (
-				<div class="mb-8">
-					<h3 class="mb-3" style="font-size: 1.05rem;">{entry.data.slides.heading}</h3>
-					<div style="width: 100%; max-width: 780px; height: 500px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
+				<div class="slides-block mt-12 mb-10">
+					<h3 class="mb-4" style="font-size: 1.15rem; font-weight: 600;">{entry.data.slides.heading}</h3>
+					<div style="width: 100%; max-width: 780px; height: 520px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
 						<embed src={entry.data.slides.src} type="application/pdf" width="100%" height="100%" />
 					</div>
 					<p class="font-mono text-muted text-xs">
@@ -83,37 +83,78 @@ const talkImage = entry.data.artifacts && entry.data.artifacts.length > 0
 
 <style is:global>
 	.talk-content h2 {
-		font-size: 1.35rem;
+		font-size: 1.45rem;
 		font-weight: 600;
 		letter-spacing: -0.015em;
-		margin-top: 2.25rem;
-		margin-bottom: 0.65rem;
+		margin-top: 3.5rem;
+		margin-bottom: 1.25rem;
+		color: var(--text-primary);
+	}
+
+	.talk-content h3 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
 		color: var(--text-primary);
 	}
 
 	.talk-content p {
 		color: var(--text-secondary);
-		font-size: 0.95rem;
-		line-height: 1.68;
+		font-size: 0.98rem;
+		line-height: 1.78;
 		max-width: 780px;
-		margin-bottom: 1rem;
+		margin-bottom: 1.6rem;
+	}
+
+	.talk-content ol {
+		color: var(--text-secondary);
+		padding-left: 2rem;
+		margin-top: 1.25rem;
+		margin-bottom: 2rem;
+		list-style-type: decimal;
+		line-height: 1.78;
+		font-size: 0.98rem;
+		max-width: 780px;
 	}
 
 	.talk-content ul {
 		color: var(--text-secondary);
-		margin-left: 1.25rem;
-		margin-bottom: 1.5rem;
+		padding-left: 2rem;
+		margin-top: 1.25rem;
+		margin-bottom: 2rem;
 		list-style-type: disc;
-		line-height: 1.68;
-		font-size: 0.95rem;
+		line-height: 1.78;
+		font-size: 0.98rem;
 		max-width: 780px;
 	}
 
 	.talk-content li {
+		margin-bottom: 0.65rem;
+		padding-left: 0.4rem;
+	}
+
+	.talk-content li > p {
 		margin-bottom: 0.5rem;
 	}
 
 	.talk-content strong {
 		color: var(--text-primary);
+	}
+
+	.talk-content a {
+		color: var(--accent-color);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		transition: color 0.15s ease;
+	}
+
+	.talk-content a:hover {
+		color: var(--accent-hover);
+	}
+
+	.talk-content img {
+		display: block;
+		margin: 2.25rem 0;
 	}
 </style>

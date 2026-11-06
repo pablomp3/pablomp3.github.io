@@ -4,6 +4,7 @@ pageTitle: "MooDoor | Pablo"
 type: "Publication"
 date: "Nov 2019"
 timestamp: "2019-11"
+unlisted: true
 description: "An interactive door display using ambient visual cues to lower the anxiety of initiating contact with neighbors and strengthen community resilience."
 links:
   - text: "Read the Published Paper (ResearchGate)"

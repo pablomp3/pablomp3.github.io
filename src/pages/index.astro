@@ -8,8 +8,13 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 <Layout title="Pablo | Machine Learning Engineer">
 	<!-- HERO -->
 	<div class="flex flex-col">
-		<h1 class="hero-name">{hero.title}</h1>
-		<p class="hero-intro text-secondary" set:html={hero.intro} />
+		<div class="hero-header">
+			<div class="hero-copy">
+				<h1 class="hero-name">{hero.title}</h1>
+				<p class="hero-intro text-secondary" set:html={hero.intro} />
+			</div>
+			<img class="hero-photo" src="/assets/pablo-portrait.jpg" alt="Pablo" width="150" height="150" />
+		</div>
 		
 		<div class="engineering-section">
 			<p class="focus-lead text-secondary" set:html={engineeringFocus.lead} />
@@ -59,6 +64,25 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 </Layout>
 
 <style>
+	.hero-header {
+		display: flex;
+		align-items: center;
+		gap: 1.75rem;
+		max-width: 650px;
+		margin-bottom: 2rem;
+	}
+
+	.hero-copy { flex: 1; min-width: 0; }
+
+	.hero-photo {
+		flex: 0 0 112px;
+		width: 112px;
+		height: 112px;
+		object-fit: cover;
+		border-radius: 50%;
+		border: 1px solid var(--border-color);
+	}
+
 	.hero-name {
 		font-size: 2rem;
 		font-weight: 700;
@@ -71,7 +95,7 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 		font-size: 1.05rem;
 		line-height: 1.6;
 		max-width: 650px;
-		margin-bottom: 1.5rem;
+		margin-bottom: 0;
 		color: var(--text-secondary);
 	}
 
@@ -137,13 +161,16 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 	}
 
 	@media (max-width: 640px) {
+		.hero-header { gap: 1rem; align-items: center; }
+		.hero-photo { width: 80px; height: 80px; flex-basis: 80px; }
+
 		.hero-name {
 			font-size: 1.65rem;
 		}
 
 		.hero-intro {
 			font-size: 1rem;
-			margin-bottom: 1.25rem;
+			margin-bottom: 0;
 		}
 
 		.focus-lead {
