@@ -19,27 +19,21 @@
         "target": "_blank"
       },
       {
-        "name": "Semantic Scholar",
-        "url": "https://www.semanticscholar.org/author/Pablo-L%C3%B3pez-Di%C3%A9guez/2059018950",
-        "target": "_blank"
-      },
-      {
         "name": "Email",
         "url": "mailto:pabloldieguez@gmail.com"
       }
     ]
   },
   "engineeringFocus": {
-    "title": "Engineering Focus",
-    "lead": "With a <a href=\"/cv\">background in EECS</a>, I have worked across the US, Spain, Portugal, China, and Taiwan on:",
+    "lead": "With a <a href=\"/cv\">background in EECS</a>, I have studied and worked across the US, Spain, Portugal, China, and Taiwan on:",
     "areas": [
       {
         "title": "Production ML",
-        "description": "Designing end-to-end ML pipelines, automating deployment with CI/CD, Infrastructure as Code (IaC), and MLOps."
+        "description": "Building training and inference pipelines for semiconductors, fraud detection and e-commerce: from fine-tuning pretrained vision models for image defect detection to image inference, customer segmentation, and statistical analysis.<br />I use CI/CD, MLOps and IaC (e.g. Terraform) to deploy to the cloud (mainly GCP, Oracle, and Nebius)."
       },
       {
-        "title": "Agents & Applied AI",
-        "description": "Building agentic systems, MCPs, LLM-driven tooling, and fraud detection systems."
+        "title": "LLMs & Agents",
+        "description": "Designing agentic systems, MCP servers/tools, and vector databases to help <a href=\"https://github.com/pablomp3/fab_agent/\">troubleshoot manufacturing defects</a>.<br />"
       },
       {
         "title": "Music",
@@ -49,9 +43,8 @@
   },
   "coffeeChat": {
     "title": "Say Hi / Coffee Chat",
-    "description": "I enjoy meeting new people and keep an open door for anyone curious about moving to Taiwan, breaking into machine learning and semiconductors, or hacking on music tech and audio hardware.",
-    "mentorship": "Over the past few years, I’ve also mentored university students through <a href=\"https://www.imfahe.org\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline;\">IMFAHE</a>.",
-    "invitation": "Feel free to grab a slot on my calendar to chat:",
+    "description": "Interested in machine learning, semiconductors, music technology, or life in Taiwan? Feel free to grab a slot on my calendar to chat.",
+    "mentorship": "I've also mentored university students through <a href=\"https://www.imfahe.org\" target=\"_blank\" rel=\"noopener noreferrer\">IMFAHE</a> since 2024.",
     "bookingLinks": [
       {
         "label": "-> Say hello",

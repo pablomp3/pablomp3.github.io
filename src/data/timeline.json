@@ -5,8 +5,8 @@
     "org": "Micron Technology",
     "location": "Taiwan",
     "highlights": [
-      "<strong>Staff AI/ML Engineer</strong> (promoted from <strong>Senior ML Engineer</strong> in 2026): I design agents and MCPs to troubleshoot manufacturing defects, and build scalable ML pipelines to detect them!",
-      "Besides the cool projects, I spend time on architecture and mentoring other engineers.",
+      "<strong>Staff AI/ML Engineer</strong> (promoted from <strong>Senior ML Engineer</strong> in 2026):<br /> I design agents and MCPs to troubleshoot manufacturing defects, and build scalable ML pipelines to detect them!",
+      "I also spend time on architecture and mentoring other engineers.",
       "Regular attendee and <a href=\"/talk/keep-audio\">speaker at PyCon TW</a>."
     ]
   },
@@ -17,7 +17,7 @@
     "location": "Taiwan",
     "highlights": [
       "Moved to Taipei to work as <strong>Data Scientist</strong> on <strong>fraud detection</strong> and <strong>CRM modeling</strong>.",
-      "I turned raw data into concrete business actions and kept <a href=\"/talk/automl\">ML models in production</a>."
+      "I turned raw data into concrete business actions and kept ML models in production and gave a <a href=\"/talk/automl\">talk on AutoML</a>."
     ]
   },
   {
@@ -26,7 +26,7 @@
     "org": "NTHU Artificial Intelligence Lab",
     "location": "Taiwan",
     "highlights": [
-      "I joined the NTHU AI Lab as a <strong>Research Data Scientist</strong> to use <strong>generative models (VAEs) for automatic music generation</strong>, resulting in a few <a href=\"https://www.semanticscholar.org/author/Pablo-L%C3%B3pez-Di%C3%A9guez/2059018950\" target=\"_blank\" rel=\"noopener noreferrer\">publications</a> and  <a href=\"/talk/polyphonic-music\">talks</a>!"
+      "I joined the NTHU AI Lab as a <strong>Research Data Scientist</strong> to use <strong>generative models (VAEs) for automatic music generation</strong>, resulting in a few <a href=\"/talk/polyphonic-music\">publications</a>!"
     ],
     "images": [
       {
@@ -132,7 +132,7 @@
     "id": "early-years",
     "org": "Early Years",
     "highlights": [
-      "Born in <a href=\"https://www.google.com/maps/place/Ponferrada,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Ponferrada</a>. Growing up, I moved around and lived in <a href=\"https://www.google.com/maps/place/Macotera,+Salamanca,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Macotera</a> (Salamanca), <a href=\"https://www.google.com/maps/place/Sahagún,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Sahagún</a> (León), and <a href=\"https://www.google.com/maps/place/Setúbal,+Portugal\" target=\"_blank\" rel=\"noopener noreferrer\">Setúbal</a> (Portugal)—just south of Lisbon, right after crossing the interminable Vasco da Gama bridge.",
+      "Born in <a href=\"https://www.google.com/maps/place/Ponferrada,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Ponferrada</a>. Growing up, I moved around and lived in <a href=\"https://www.google.com/maps/place/Macotera,+Salamanca,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">Salamanca</a>, <a href=\"https://www.google.com/maps/place/Sahagún,+León,+Spain\" target=\"_blank\" rel=\"noopener noreferrer\">León</a>, and <a href=\"https://www.google.com/maps/place/Setúbal,+Portugal\" target=\"_blank\" rel=\"noopener noreferrer\">Setúbal</a> (Portugal)—just south of Lisbon, right after crossing the interminable Vasco da Gama bridge.",
       "When I was 9, I <strong>visited China (Beijing and Yunnan) for the first time</strong> with my parents. It must have left a lasting impression on me, as I would end up moving back to live there for almost two years later in life."
     ]
   }

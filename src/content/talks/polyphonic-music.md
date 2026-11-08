@@ -2,17 +2,20 @@
 title: "Variational Autoencoders for Polyphonic Music Interpolation"
 pageTitle: "Polyphonic Music Generation | Pablo"
 type: "Publication"
-date: "Mar 2022"
+date: "2022/03"
 timestamp: "2022-03"
-description: "A novel Variational Autoencoder (VAE+NN) architecture for polyphonic music interpolation that outperforms standard linear sampling approaches. Published in JISE and IEEE TAAI."
+description: "Research on using variational autoencoders to create transitions between pieces of polyphonic music."
 links:
-  - text: "Read Journal Paper (JISE 2022)"
-    url: "https://jise.iis.sinica.edu.tw/JISESearch/fullText;jsessionid=ae47212eac032c3804c2227d540f?pId=2488&code=34C89A9F403A58A"
+  - text: "Journal paper (JISE 2022)"
+    url: "https://www.researchgate.net/publication/417260443_VAENN_Interpolation_Composition_by_Direct_Estimation_of_Encoded_Vectors_Against_Linear_Sampling_of_Latent_Space"
     badge: "Full Text ↗"
-  - text: "Read Conference Paper (IEEE TAAI 2020)"
-    url: "https://ieeexplore.ieee.org/document/9382444"
-    badge: "IEEE Xplore ↗"
-  - text: "View Source Code (GitHub)"
+  - text: "Conference paper (IEEE TAAI 2020)"
+    url: "https://www.researchgate.net/publication/350330641_Variational_Autoencoders_for_Polyphonic_Music_Interpolation"
+    badge: "ResearchGate ↗"
+  - text: "Master's thesis"
+    url: "https://www.researchgate.net/publication/417260439_Variational_Autoencoders_for_Polyphonic_Music_Interpolation"
+    badge: "ResearchGate ↗"
+  - text: "Source code (GitHub)"
     url: "https://github.com/pablomp3/ML-interpolation-Master-Thesis"
     badge: "Repository ↗"
 slides:
@@ -20,38 +23,59 @@ slides:
   src: "/assets/talks/polyphonic-music/TAAI_Variational_Autoencoders.pdf"
 ---
 
-## The Problem
 
-In traditional Machine Learning, the generation of music is conditioned on past events. But what if we could **condition the music generation on both past and future events**? The problem of music interpolation composition is constructing new data points within the range of a discrete set of known data points. 
+## What is music interpolation?
 
-If we input a begin track and an end track of 10 seconds each to our model, the goal is to obtain a middle (or interpolation) track of also 10 seconds as output, whose pitches and dynamics smoothly match both given tracks.
+In traditional music generation, the model generates music based on past events. But what if we could use both past and future events? The goal is to generate a middle track that connects a given beginning and ending.
 
-<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/interpolation_definition.jpg" alt="Interpolation Definition" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+We input a begin track and an end track of 10 seconds each, and the model generates a middle track of 10 seconds. We can then compare the generated track with the original middle track from the human composition.
 
-## The Approach & Architecture
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/interpolation_definition.jpg" alt="Diagram showing a generated middle track between a beginning and an ending" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
 
-This thesis aims to use Machine Learning techniques to solve this novel problem using generative models. Rather than relying on standard linear sampling of the latent space (which often yields poor musical results), a novel architecture is proposed: **Variational Autoencoder + Neural Network (VAE+NN)**.
+The tracks are polyphonic, meaning that several notes can play at the same time. They are represented as MIDI, which describes notes symbolically instead of using a recorded audio waveform.
 
-- **Dataset Creation**: The *Hsinchu Interpolation MIDI Dataset* was created to make the model more efficient than previous approaches in the literature in terms of computational and time requirements during training.
-- **Latent Space Estimation**: The core of the novel architecture performs interpolation via direct estimation of the encoded vector. 
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/mono_vs_polyphonic.jpg" alt="Monophonic music has one note at a time, while polyphonic music can have several" loading="lazy" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
 
-The process follows these steps:
-1. Encode the begin track and end track with the VAE to obtain `z_begin` and `z_end`, respectively.
-2. Use a secondary neural network (NN) to directly estimate the interpolation encoded vector `z_interpolation` based on `z_begin` and `z_end`. This predicts a realistic, curved trajectory through the latent space instead of a naive straight line.
-3. Decode the interpolation encoded vector `z_interpolation` to obtain the final polyphonic interpolation track.
+Each timestep is represented as a vector of 64 binary elements, one for each pitch: 1 means the note is on, and 0 means it is off.
 
-<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/VAE%2BNN_architecture.jpg" alt="VAE+NN Architecture" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/polyphonic_modelling.jpg" alt="A piano keyboard and a binary vector showing how active notes are represented" loading="lazy" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
 
-## Outcome & What I Learned
+## Dataset and approach
 
-The novel VAE+NN model significantly outperformed standard VAEs that rely on linear sampling of the latent space (an approach comparable to the state-of-the-art, such as Google Magenta's MusicVAE). By predicting a realistic path instead of a naive mathematical average, the VAE+NN architecture achieved a much lower reconstruction loss.
+I created the *Hsinchu Interpolation MIDI Dataset*, based on the Lakh MIDI Dataset. It contains 30,830 segments of 30 seconds each, selected to include segments where the beginning and ending tracks are different.
 
-<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/MSE_average.jpg" alt="MSE Error Comparison" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+I tested four approaches: random data, a bidirectional LSTM, a variational autoencoder (VAE), and a VAE combined with a neural network (VAE+NN). The VAE approach encodes the beginning and ending tracks into vectors, averages those vectors, and decodes the result to produce the interpolation track.
 
-To ensure the validity of the results, a quantitative user study was conducted with 32 users from 8 different countries. The subjective evaluation confirmed that human listeners strongly preferred the interpolations generated by the VAE+NN model over the linear sampling baseline.
+The VAE+NN approach replaces the averaging step with a neural network that estimates the interpolation vector:
 
-<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/subjective_evaluation_total.jpg" alt="Subjective Evaluation" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+1. Encode the begin track and end track with the VAE to obtain `z_begin` and `z_end`.
+2. Use a neural network to estimate `z_interpolation` from those two vectors.
+3. Decode `z_interpolation` to obtain the polyphonic interpolation track.
 
-This research resulted in two publications to international journals and conferences (JISE 2022 and IEEE TAAI 2020).
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/VAE%2BNN_architecture.jpg" alt="Architecture of the VAE and neural network used to estimate the middle track" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+
+## Results
+
+I evaluated the models using mean squared error (MSE) against the original human-composed middle tracks. In these experiments, VAE+NN achieved lower reconstruction error than the VAE with linear interpolation. This measures similarity to the reference track; it does not by itself tell us how the music sounds.
+
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/MSE_average.jpg" alt="Average mean squared error of the evaluated models" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+
+### More objective results
+
+The table below compares track MSE at different binarization thresholds. The threshold determines whether a predicted note is treated as on or off.
+
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/MSE_by_threshold.jpg" alt="Track MSE for Bi-LSTM, VAE, and VAE+NN across binarization thresholds" loading="lazy" style="width: 100%; max-width: 680px; border-radius: 8px; margin: 1.5rem 0;" />
+
+The next table compares MSE in the latent space for the two VAE approaches.
+
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/MSE_latent_space.jpg" alt="Latent-space MSE comparison for VAE and VAE plus neural network" loading="lazy" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1.5rem 0;" />
+
+### Listening study
+
+I also conducted a listening study with 32 people from eight countries. In the total votes shown below, VAE+NN received 52 votes, compared with 44 for VAE; human compositions received 66.
+
+<img src="https://raw.githubusercontent.com/pablomp3/ML-interpolation-Master-Thesis/master/images/subjective_evaluation_total.jpg" alt="Listening study total votes: Bi-LSTM 22, VAE 44, VAE+NN 52, human 66" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 1.5rem 0;" />
+
+This research resulted in a conference paper at IEEE TAAI 2020 and a journal paper in JISE in 2022. The papers, thesis, code, and presentation slides are linked above.
 
 <img src="/assets/talks/polyphonic-music/visionandsound.png" alt="Presenting at TAAI 2020" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 2rem 0;" />

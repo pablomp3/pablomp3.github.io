@@ -24,61 +24,21 @@ const talkImage = entry.data.artifacts && entry.data.artifacts.length > 0
 
 <Layout title={pageTitle} description={entry.data.description} image={talkImage}>
 	<div class="mb-8">
-		<a href="/talks" class="font-mono text-muted" style="font-size: 0.85rem;">&larr; Back to Talks & Publications</a>
+		<a href="/talks" class="font-mono text-muted" style="font-size: 0.85rem;">&larr; Back</a>
 	</div>
 
 	<h1 class="mb-3">{entry.data.title}</h1>
 	<p class="font-mono text-muted text-sm mb-8">{entry.data.subtitle}</p>
 
+	{hasResources && <p style="display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+		{entry.data.links.map(link => <a href={link.url} target="_blank" rel="noopener noreferrer">{link.text} ↗</a>)}
+		{entry.data.slides && <a href={entry.data.slides.src}>Slides ↗</a>}
+	</p>}
+
 	<div class="talk-content">
 		<Content />
 	</div>
 
-	{hasResources && (
-		<section class="resources-section mt-16 pt-12" style="border-top: 1px solid var(--border-color);">
-			<h2 class="mb-6" style="font-size: 1.35rem; font-weight: 600;">Resources & Artifacts</h2>
-			
-			{entry.data.links && entry.data.links.length > 0 && (
-				<div class="flex flex-col gap-3 mb-12">
-					{entry.data.links.map(link => (
-						<a 
-							href={link.url} 
-							target="_blank" 
-							rel="noopener noreferrer" 
-							class="list-item" 
-							style="padding: 0.9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; margin-bottom: 0;"
-						>
-							<span><strong>{link.text}</strong></span>
-							<span class="font-mono text-muted text-sm">{link.badge}</span>
-						</a>
-					))}
-				</div>
-			)}
-
-			{entry.data.artifacts && entry.data.artifacts.map(art => (
-				<div class="mb-10">
-					<h3 class="mb-3" style="font-size: 1.1rem; font-weight: 600;">{art.heading}</h3>
-					<img 
-						src={art.src} 
-						alt={art.alt} 
-						style="width: 100%; max-width: 780px; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--border-color);" 
-					/>
-				</div>
-			))}
-
-			{entry.data.slides && (
-				<div class="slides-block mt-12 mb-10">
-					<h3 class="mb-4" style="font-size: 1.15rem; font-weight: 600;">{entry.data.slides.heading}</h3>
-					<div style="width: 100%; max-width: 780px; height: 520px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
-						<embed src={entry.data.slides.src} type="application/pdf" width="100%" height="100%" />
-					</div>
-					<p class="font-mono text-muted text-xs">
-						Can't view the embed? <a href={entry.data.slides.src} target="_blank" style="text-decoration: underline;">Download the PDF slides here</a>.
-					</p>
-				</div>
-			)}
-		</section>
-	)}
 </Layout>
 
 <style is:global>

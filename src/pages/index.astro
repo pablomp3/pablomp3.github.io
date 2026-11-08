@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import homeData from '../data/home.json';
+import { getCollection } from 'astro:content';
+const latest = (await getCollection('talks')).filter(item => !item.data.unlisted).sort ( (a, b) => b.data.timestamp.localeCompare(a.data.timestamp)).slice(0, 2);
 
-const { hero, engineeringFocus, coffeeChat } = homeData;
+const { hero, coffeeChat, engineeringFocus } = homeData;
 ---
 
-<Layout title="Pablo | Machine Learning Engineer">
+<Layout title="Pablo Diéguez | Staff AI Engineer">
 	<!-- HERO -->
 	<div class="flex flex-col">
 		<div class="hero-header">
@@ -16,17 +18,15 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 			<img class="hero-photo" src="/assets/pablo-portrait.jpg" alt="Pablo" width="150" height="150" />
 		</div>
 		
-		<div class="engineering-section">
-			<p class="focus-lead text-secondary" set:html={engineeringFocus.lead} />
-			<ul class="focus-list text-secondary">
-				{engineeringFocus.areas.map(area => (
-					<li class="focus-item">
-						<strong class="focus-title text-primary">{area.title}</strong>
-						<div class="focus-desc text-secondary" set:html={area.description} />
-					</li>
-				))}
-			</ul>
-		</div>
+		<details style="max-width: 650px; margin-bottom: 1.5rem;">
+			<summary style="cursor: pointer;">More about my engineering work</summary>
+			<div style="margin-top: 1rem;">
+				<p class="text-secondary mb-4" set:html={engineeringFocus.lead} />
+				<ul style="margin-left: 1.5rem;">
+					{engineeringFocus.areas.map(area => <li style="margin-bottom: 1rem;"><strong>{area.title}</strong><div class="text-secondary" set:html={area.description} /></li>)}
+				</ul>
+			</div>
+		</details>
 
 		<div class="social-row text-secondary">
 			<span class="social-label">Find me on:</span>
@@ -34,12 +34,18 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 				<>
 					{idx > 0 && <span class="social-sep">•</span>}
 					<a href={link.url} target={link.target || undefined} rel={link.target ? "noopener noreferrer" : undefined}>
-						{link.name}
+						{link.name} ↗
 					</a>
 				</>
 			))}
 		</div>
 	</div>
+
+	<section class="latest-writing" style="max-width: 680px; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+		<h2 class="mb-4">Latest writing & talks</h2>
+		{latest.map(item => <article style="display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.75rem; overflow-x: auto; white-space: nowrap;"><span class="font-mono text-muted" style="font-size: 0.85rem; white-space: nowrap;">{item.data.date} ·</span><h3 style="margin: 0; font-size: 0.95rem; line-height: 1.4;"><a href={`/talk/${item.slug}`} style="color: var(--text-primary);">{item.data.title}</a></h3></article>)}
+		<a href="/talks">All writing & talks →</a>
+	</section>
 
 	<!-- SAY HI / COFFEE CHAT -->
 	<div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
@@ -49,9 +55,6 @@ const { hero, engineeringFocus, coffeeChat } = homeData;
 				{coffeeChat.description}
 			</p>
 			<p class="mb-4 text-secondary" style="font-size: 0.95rem; line-height: 1.65;" set:html={coffeeChat.mentorship} />
-			<p class="mb-3 text-secondary" style="font-size: 0.95rem; font-weight: 500;">
-				{coffeeChat.invitation}
-			</p>
 			<div class="flex flex-wrap gap-4 font-mono text-sm" style="margin-top: 1.5rem;">
 				{coffeeChat.bookingLinks.map(b => (
 					<a href={b.url} target="_blank" rel="noopener noreferrer" class="list-item" style="padding: 0.65rem 1.25rem; text-decoration: none;">

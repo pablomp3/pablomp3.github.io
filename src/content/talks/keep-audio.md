@@ -2,14 +2,14 @@
 title: "The Voice Memo Graveyard: Building a Second Brain for Musicians with Python"
 pageTitle: "The Voice Memo Graveyard | Pablo"
 type: "Talk"
-date: "Sep 2026"
+date: "2026/09"
 timestamp: "2026-09"
-description: "I recorded 54 voice memos in two years and finished one song. So I built a Python rules engine to match my musical ideas, on a single free VM with FastAPI, SQLite and local Whisper."
+description: "I had 54 voice memos and one finished song. Here's how I built a tool to help musicians find connections between their ideas."
 links:
-  - text: "PyCon Taiwan 2026 Talk Details"
+  - text: "PyCon Taiwan 2026 talk"
     url: "https://tw.pycon.org/2026/en-us/conference/talk/394"
     badge: "Official Schedule ↗"
-  - text: "Project Website (keep-audio.xyz)"
+  - text: "Website (keep-audio.xyz)"
     url: "https://keep-audio.xyz"
     badge: "Live App ↗"
 slides:

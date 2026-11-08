@@ -2,14 +2,14 @@
 title: "Sound Processor for Electric Guitar"
 pageTitle: "Sound Processor for Electric Guitar | Pablo"
 type: "Publication"
-date: "Jul 2018"
+date: "2018/07"
 timestamp: "2018-07"
-description: "Design and fabrication of an open, programmable digital effects pedal for electric guitar, featuring ultra-low latency real-time DSP."
+description: "How I designed and built a programmable digital effects pedal for electric guitar."
 links:
-  - text: "Read Thesis Publication (ResearchGate)"
+  - text: "Bachelor's thesis"
     url: "https://www.researchgate.net/publication/343163713_Sound_Processor_for_Electric_Guitar"
     badge: "Full Monograph ↗"
-  - text: "Watch Live Demo Video (YouTube)"
+  - text: "Live demo (YouTube)"
     url: "https://www.youtube.com/watch?v=_gIwaO_1uJA"
     badge: "Video ↗"
 ---

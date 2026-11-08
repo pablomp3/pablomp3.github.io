@@ -9,8 +9,8 @@ interface Props {
 
 const { 
 	title,
-	description = "Pablo's personal portfolio, engineering projects, talks, and interests.",
-	image = "/assets/cv/timeline/gcp_prof_data_engineer.png"
+	description = "Staff AI/ML engineer in Taiwan, building machine learning systems for semiconductors and music tools for fun.",
+	image = "/assets/social-preview.jpg"
 } = Astro.props;
 
 const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://pablomp3.github.io';
@@ -30,7 +30,7 @@ const imageURL = new URL(image, siteUrl);
 		<!-- SEO & Canonical -->
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="description" content={description} />
-		<meta name="author" content="Pablo Marín Pérez" />
+		<meta name="author" content="Pablo López Diéguez" />
 
 		<!-- OpenGraph / LinkedIn / Facebook / WhatsApp -->
 		<meta property="og:type" content="website" />
@@ -75,7 +75,7 @@ const imageURL = new URL(image, siteUrl);
 					<ul class="nav-links">
 						<li><a href="/">Home</a></li>
 						<li><a href="/cv">CV</a></li>
-						<li><a href="/talks">Talks & Publications</a></li>
+						<li><a href="/talks">Writing & Talks</a></li>
 						<li><a href="/interests">Interests</a></li>
 					</ul>
 				</nav>

@@ -15,7 +15,6 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 
 	<!-- SUB-NAVIGATION -->
 	<nav class="interest-nav font-mono text-sm" aria-label="Interests Sub-navigation">
-		<a href="#beyond-the-terminal" class="tag">#beyond-the-terminal</a>
 		<a href="#scuba-diving" class="tag">#scuba-diving</a>
 		<a href="#music" class="tag">#music</a>
 		<a href="#reading" class="tag">#reading</a>
@@ -47,14 +46,15 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 					<li class="mb-1"><strong class="text-primary">{site.country}:</strong> {site.locations}</li>
 				))}
 			</ul>
+
 		</div>
 
 		<!-- Diving Photos Grid -->
 		<div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; max-width: 680px;">
 			{interestsData.scubaDiving.photos.map(photo => (
 				<div 
-					class="list-item" 
-					style="padding: 0.75rem; display: flex; flex-direction: column; margin-bottom: 0; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease;" 
+					class="dive-tile" role="button" tabindex="0" aria-label={`Expand ${photo.alt}`} 
+					style="padding: 0; display: flex; flex-direction: column; margin-bottom: 0; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease;" 
 					onclick={`window.openLightbox('/assets/interests/diving/${photo.img}')`}
 					onmouseover="this.style.borderColor='var(--text-muted)'; this.style.transform='translateY(-2px)'"
 					onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'"
@@ -62,7 +62,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 					<div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; background: var(--border-color);">
 						<img 
 							src={`/assets/interests/diving/${photo.img}`} 
-							alt={photo.alt} 
+							alt={photo.alt} loading="lazy"
 							style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease;" 
 							onmouseover="this.style.transform='scale(1.03)'" 
 							onmouseout="this.style.transform='scale(1)'" 
@@ -85,7 +85,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 				<div class="playing-col">
 					<!-- Bassist tall -->
 					<div 
-						class="playing-card card-tall" 
+						class="playing-card card-tall" role="button" tabindex="0" 
 						onclick="window.openLightbox('/assets/interests/music/bassist.jpg')"
 					>
 						<img 
@@ -98,7 +98,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 
 					<!-- Play Guitar wide -->
 					<div 
-						class="playing-card card-wide" 
+						class="playing-card card-wide" role="button" tabindex="0" 
 						onclick="window.openLightbox('/assets/interests/music/play_guitar.jpg')"
 					>
 						<img 
@@ -110,10 +110,10 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 					</div>
 				</div>
 
-				<div class="playing-col">
+				<details class="playing-col"><summary style="cursor: pointer; margin-bottom: 1rem;">Show more music photos</summary>
 					<!-- Play Bass wide -->
 					<div 
-						class="playing-card card-wide" 
+						class="playing-card card-wide" role="button" tabindex="0" 
 						onclick="window.openLightbox('/assets/interests/music/play_bass.jpg')"
 					>
 						<img 
@@ -126,7 +126,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 
 					<!-- Guitar Solo tall -->
 					<div 
-						class="playing-card card-tall" 
+						class="playing-card card-tall" role="button" tabindex="0" 
 						onclick="window.openLightbox('/assets/interests/music/play_guitar_solo.jpg')"
 					>
 						<img 
@@ -136,8 +136,9 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 						/>
 						<div class="playing-expand-hint font-mono">Expand ↗</div>
 					</div>
-				</div>
+				</details>
 			</div>
+		</div>
 		</div>
 
 		<!-- ALBUMS -->
@@ -150,8 +151,8 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			</p>
 
 			<div class="album-grid">
-				{albums.map(album => (
-					<div class="list-item album-tile">
+				{albums.slice(0, 8).map(album => (
+					<div class="album-tile">
 						<a 
 							href={`https://www.youtube.com/results?search_query=${encodeURIComponent(album.artist + ' ' + album.title + ' full album')}`}
 							target="_blank" 
@@ -161,7 +162,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 						>
 							<div class="album-cover-wrapper">
 								<img 
-									src={`/assets/interests/albums/${album.cover}`} 
+									src={`/assets/thumbnails/albums/${album.cover}.webp`} 
 									alt={`${album.title} - ${album.artist}`} 
 									loading="lazy"
 								/>
@@ -175,6 +176,34 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 					</div>
 				))}
 			</div>
+		<details style="margin-top: 1rem;"><summary style="cursor: pointer; margin-bottom: 1rem;">Show all</summary>
+			<div class="album-grid">
+				{albums.slice(8).map(album => (
+					<div class="album-tile">
+						<a 
+							href={`https://www.youtube.com/results?search_query=${encodeURIComponent(album.artist + ' ' + album.title + ' full album')}`}
+							target="_blank" 
+							rel="noopener noreferrer" 
+							class="album-cover-link"
+							aria-label={`Listen to ${album.title} by ${album.artist} on YouTube`}
+						>
+							<div class="album-cover-wrapper">
+								<img 
+									src={`/assets/thumbnails/albums/${album.cover}.webp`} 
+									alt={`${album.title} - ${album.artist}`} 
+									loading="lazy"
+								/>
+							</div>
+						</a>
+						<div class="album-info">
+							<span class="font-mono text-muted album-year">[{album.year}]</span>
+							<h4 class="album-title-text">{album.title}</h4>
+							<span class="text-secondary album-artist">{album.artist}</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</details>
 		</div>
 	</section>
 
@@ -201,6 +230,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			))}
 		</ul>
 
+
 		<h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.75rem;">Non-Technical</h3>
 		<ul class="text-secondary" style="margin-left: 1.25rem; list-style-type: disc; line-height: 1.8; font-size: 0.95rem; max-width: 680px;">
 			{nonTechnicalBooks.map(book => (
@@ -219,6 +249,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 				</li>
 			))}
 		</ul>
+
 	</section>
 
 	<!-- DRAWINGS -->
@@ -228,15 +259,15 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			Sketches and visual experiments across my travels and daily life. Click any sketch to expand.
 		</p>
 		<div class="sketch-grid">
-			{interestsData.drawings.map(d => (
+			{interestsData.drawings.slice(0, 8).map(d => (
 				<div 
-					class="list-item sketch-tile"
+					class="sketch-tile" role="button" tabindex="0" aria-label={`Expand ${d.alt}`}
 					onclick={`window.openLightbox('${d.img}')`}
 					title={`Click to expand ${d.title}`}
 				>
 					<div class="sketch-cover-wrapper">
 						<img 
-							src={d.img} 
+							src={`/assets/thumbnails/sketches/${d.img.split('/').pop()}.webp`} 
 							alt={d.alt} 
 							loading="lazy" 
 						/>
@@ -249,37 +280,63 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 				</div>
 			))}
 		</div>
+		<details style="margin-top: 1rem;"><summary style="cursor: pointer; margin-bottom: 1rem;">Show all</summary>
+		<div class="sketch-grid">
+			{interestsData.drawings.slice(8).map(d => (
+				<div 
+					class="sketch-tile" role="button" tabindex="0" aria-label={`Expand ${d.alt}`}
+					onclick={`window.openLightbox('${d.img}')`}
+					title={`Click to expand ${d.title}`}
+				>
+					<div class="sketch-cover-wrapper">
+						<img 
+							src={`/assets/thumbnails/sketches/${d.img.split('/').pop()}.webp`} 
+							alt={d.alt} 
+							loading="lazy" 
+						/>
+						<div class="sketch-expand-hint font-mono">Expand ↗</div>
+					</div>
+					<div class="sketch-info">
+						<span class="font-mono text-muted sketch-date">[{d.date}]</span>
+						<h4 class="sketch-title-text">{d.title}</h4>
+					</div>
+				</div>
+			))}
+		</div>
+		</details>
 	</section>
 
 	<!-- Lightbox Modal -->
-	<div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s ease;">
-		<img id="lightbox-img" src="" style="max-width: 70%; max-height: 75vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-	</div>
+	<dialog id="lightbox" aria-label="Expanded image" style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--card-bg); max-width: 95vw; max-height: 95vh;">
+		<button id="lightbox-close" type="button" aria-label="Close expanded image" style="display: block; margin: 0 0 0.75rem auto; cursor: pointer;">Close ×</button>
+		<img id="lightbox-img" alt="" style="display: block; max-width: 85vw; max-height: 78vh; object-fit: contain;" />
+	</dialog>
 
 	<script is:inline>
-		// Lightbox functionality
 		const lightbox = document.getElementById('lightbox');
 		const lightboxImg = document.getElementById('lightbox-img');
-
+		const closeButton = document.getElementById('lightbox-close');
+		let previousFocus;
 		window.openLightbox = function(src) {
+			previousFocus = document.activeElement;
 			lightboxImg.src = src;
-			lightbox.style.display = 'flex';
-			setTimeout(() => {
-				lightbox.style.opacity = '1';
-			}, 10);
+			lightboxImg.alt = previousFocus.querySelector('img')?.alt || 'Expanded image';
+			lightbox.showModal();
+			closeButton.focus();
 		};
-
-		if (lightbox) {
-			lightbox.addEventListener('click', function() {
-				lightbox.style.opacity = '0';
-				setTimeout(() => {
-					lightbox.style.display = 'none';
-				}, 300);
+		closeButton.addEventListener('click', () => lightbox.close());
+		lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
+		lightbox.addEventListener('close', () => { if (previousFocus) previousFocus.focus(); });
+		document.querySelectorAll('[role="button"][onclick]').forEach(item => {
+			item.addEventListener('keydown', event => {
+				if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); item.click(); }
 			});
-		}
+		});
 	</script>
 
 	<style>
+		#lightbox::backdrop { background: rgba(0, 0, 0, 0.8); }
+		[role="button"]:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
 		html {
 			scroll-behavior: smooth;
 		}
@@ -338,7 +395,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			border-radius: 8px;
 			overflow: hidden;
 			background: var(--card-bg);
-			border: 1px solid var(--border-color);
+			border: 0;
 			cursor: pointer;
 			transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 		}
@@ -372,7 +429,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 		.playing-card:hover {
 			border-color: var(--text-muted);
 			transform: translateY(-3px);
-			box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+			box-shadow: none;
 		}
 
 		.playing-card:hover img {
@@ -439,7 +496,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 		.album-tile {
 			min-width: 0;
 			overflow: hidden;
-			padding: 0.75rem;
+			padding: 0;
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 0;
@@ -488,7 +545,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			}
 
 			.album-tile {
-				padding: 0.35rem !important;
+				padding: 0 !important;
 			}
 
 			.album-info {
@@ -547,17 +604,17 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			text-underline-offset: 3px;
 		}
 
-		/* SKETCHES (2 columns layout) */
+		/* SKETCHES */
 		.sketch-grid {
 			display: grid;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 			gap: 1.5rem;
 		}
 
 		.sketch-tile {
 			min-width: 0;
 			overflow: hidden;
-			padding: 0.85rem;
+			padding: 0;
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 0;
@@ -641,7 +698,7 @@ const albums = [...albumsData].sort((a, b) => b.year - a.year);
 			}
 
 			.sketch-tile {
-				padding: 0.5rem !important;
+				padding: 0 !important;
 			}
 
 			.sketch-info {
