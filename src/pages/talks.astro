@@ -17,13 +17,12 @@ const items = allTalks
 ---
 
 <Layout title="Writing & Talks | Pablo">
-	<h1 class="mb-8">Writing & Talks</h1>
 	<div class="talks-list" style="max-width: 680px;">
 		{items.map(item => (
 			<article style="padding: 0 0 1.75rem; margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-color);">
-				<div style="display: flex; align-items: baseline; gap: 0.6rem; overflow-x: auto; white-space: nowrap;">
-					<span class="font-mono text-muted" style="font-size: 0.85rem; white-space: nowrap;">{item.date} ·</span>
-					<h3 style="margin: 0; font-size: 0.95rem; line-height: 1.4;"><a href={item.link} style="color: var(--text-primary);">{item.title}</a></h3>
+				<div class="talk-row">
+					<span class="font-mono text-muted talk-date">{item.date}</span>
+					<h3><a href={item.link}>{item.title}</a></h3>
 				</div>
 				{(item.resources.length > 0 || item.slides) && <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 0.65rem; font-size: 0.85rem;">
 					{item.resources.map(resource => <a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.text} ↗</a>)}

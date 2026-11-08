@@ -6,10 +6,10 @@ date: "2018/07"
 timestamp: "2018-07"
 description: "How I designed and built a programmable digital effects pedal for electric guitar."
 links:
-  - text: "Bachelor's thesis"
+  - text: "Thesis"
     url: "https://www.researchgate.net/publication/343163713_Sound_Processor_for_Electric_Guitar"
     badge: "Full Monograph ↗"
-  - text: "Live demo (YouTube)"
+  - text: "Live demo"
     url: "https://www.youtube.com/watch?v=_gIwaO_1uJA"
     badge: "Video ↗"
 ---

@@ -6,10 +6,10 @@ date: "2026/09"
 timestamp: "2026-09"
 description: "I had 54 voice memos and one finished song. Here's how I built a tool to help musicians find connections between their ideas."
 links:
-  - text: "PyCon Taiwan 2026 talk"
+  - text: "PyCon TW 2026"
     url: "https://tw.pycon.org/2026/en-us/conference/talk/394"
     badge: "Official Schedule ↗"
-  - text: "Website (keep-audio.xyz)"
+  - text: "keep-audio.xyz"
     url: "https://keep-audio.xyz"
     badge: "Live App ↗"
 slides:

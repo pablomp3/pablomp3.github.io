@@ -6,7 +6,7 @@ date: "2019/11"
 timestamp: "2019-11"
 description: "A 24-hour design challenge about helping neighbors connect and respond to earthquakes."
 links:
-  - text: "Conference Paper (OzCHI 2019)"
+  - text: "Conference (OzCHI 2019)"
     url: "https://www.researchgate.net/publication/343178798_MooDoor_An_Interactive_Door_with_Emotion_Display_to_Strengthen_Social_Capital_and_Community_Resilience"
     badge: "Paper ↗"
   - text: "Slides"
@@ -15,7 +15,7 @@ links:
   - text: "Poster"
     url: "/assets/talks/moodoor/poster.pdf"
     badge: "Poster ↗"
-  - text: "Our design challenge notes (Medium)"
+  - text: "Design challenge (Medium)"
     url: "https://medium.com/ozchi-2019"
     badge: "Medium ↗"
 ---

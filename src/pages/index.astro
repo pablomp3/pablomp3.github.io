@@ -43,14 +43,14 @@ const { hero, coffeeChat, engineeringFocus } = homeData;
 
 	<section class="latest-writing" style="max-width: 680px; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
 		<h2 class="mb-4">Latest writing & talks</h2>
-		{latest.map(item => <article style="display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.75rem; overflow-x: auto; white-space: nowrap;"><span class="font-mono text-muted" style="font-size: 0.85rem; white-space: nowrap;">{item.data.date} ·</span><h3 style="margin: 0; font-size: 0.95rem; line-height: 1.4;"><a href={`/talk/${item.slug}`} style="color: var(--text-primary);">{item.data.title}</a></h3></article>)}
+		{latest.map(item => <article class="talk-row" style="margin-bottom: 0.75rem;"><span class="font-mono text-muted talk-date">{item.data.date}</span><h3><a href={`/talk/${item.slug}`}>{item.data.title}</a></h3></article>)}
 		<a href="/talks">All writing & talks →</a>
 	</section>
 
 	<!-- SAY HI / COFFEE CHAT -->
 	<div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
 		<div class="mb-6" style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); max-width: 650px;">
-			<h3 class="mb-3" style="font-size: 1.15rem;">{coffeeChat.title}</h3>
+			<h3 class="mb-3">{coffeeChat.title}</h3>
 			<p class="mb-3 text-secondary" style="font-size: 0.95rem; line-height: 1.65;">
 				{coffeeChat.description}
 			</p>
