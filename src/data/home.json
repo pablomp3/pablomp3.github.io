@@ -29,15 +29,15 @@
     "areas": [
       {
         "title": "Production ML",
-        "description": "Building training and inference pipelines for semiconductors, fraud detection and e-commerce: from fine-tuning pretrained vision models for image defect detection to image inference, customer segmentation, and statistical analysis.<br />I use CI/CD, MLOps and IaC (e.g. Terraform) to deploy to the cloud (mainly GCP, Oracle, and Nebius)."
+        "description": "Building and deploying machine learning systems for semiconductors, fraud detection, and e-commerce: from vision models for defect detection to customer segmentation."
       },
       {
         "title": "LLMs & Agents",
-        "description": "Designing agentic systems, MCP servers/tools, and vector databases to help <a href=\"https://github.com/pablomp3/fab_agent/\">troubleshoot manufacturing defects</a>.<br />"
+        "description": "Designing agent workflows, MCPs, and vector databases to <a href=\"https://github.com/pablomp3/fab_agent/\">help engineers investigate manufacturing defects</a>.<br />"
       },
       {
         "title": "Music",
-        "description": "Research in <a href=\"/talk/polyphonic-music\">deep learning for music generation</a>, building <a href=\"/talk/sound-processor\">hardware for electric guitar</a>, and developing <a href=\"/talk/keep-audio\">tools for musicians</a>."
+        "description": "Research in <a href=\"/talk/polyphonic-music\">deep learning for music generation</a>, building <a href=\"/talk/sound-processor\">electric guitar hardware</a>, and developing <a href=\"/talk/keep-audio\">tools for musicians</a>."
       }
     ]
   },

@@ -1,0 +1,51 @@
+---
+interface Book {
+  title: string;
+  author: string;
+  year: number | null;
+  yearLabel?: string;
+  rating?: number;
+  genre?: string;
+}
+interface Props { books: Book[]; }
+const { books } = Astro.props;
+const limit = 3;
+---
+
+{[books.slice(0, limit), books.slice(limit)].map((group, index) => {
+  const entries = (
+    <ul class="book-list">
+      {group.map(book => (
+        <li class="book-item">
+          <div class="book-topline">
+			<div class="book-description">
+            <a href={`https://www.google.com/search?q=${encodeURIComponent(book.title + ' ' + book.author)}`} target="_blank" rel="noopener noreferrer" class="book-link">{book.title}</a>
+				<span class="book-author">{book.author}{book.year && <> · {book.yearLabel ?? book.year}</>}</span>
+			</div>
+			<div class="book-meta">
+				{book.rating && <span class="book-rating" aria-label={`${book.rating} out of 5 stars`}><span aria-hidden="true">{'★'.repeat(book.rating)}<span class="unfilled">{'☆'.repeat(5 - book.rating)}</span></span></span>}
+				{book.genre && <span class="book-genre">{book.genre}</span>}
+			</div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+  return index === 0 ? entries : group.length > 0 && <details class="book-more"><summary>Show more books</summary>{entries}</details>;
+})}
+
+<style>
+  .book-list { display: flex; flex-direction: column; gap: 0.85rem; list-style: none; max-width: 680px; }
+  .book-item { min-width: 0; line-height: 1.5; }
+  .book-topline { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
+  .book-description { min-width: 0; }
+  .book-link { color: var(--text-primary); font-size: 0.95rem; font-weight: 600; overflow-wrap: anywhere; }
+  .book-link:hover { color: var(--accent-color); }
+  .book-author { display: block; color: var(--text-secondary); font-size: 0.85rem; }
+  .book-rating { flex-shrink: 0; color: #c38b29; font-size: 0.95rem; letter-spacing: 0.08em; white-space: nowrap; }
+  .book-meta { flex-shrink: 0; text-align: right; }
+  .book-genre { display: block; color: var(--text-muted); font-size: 0.8rem; }
+  .unfilled { color: var(--text-muted); }
+  .book-more { margin-top: 1rem; }
+  .book-more summary { cursor: pointer; margin-bottom: 1rem; }
+</style>

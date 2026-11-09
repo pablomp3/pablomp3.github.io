@@ -3,54 +3,219 @@
     {
       "year": 2024,
       "title": "Build a Large Language Model (From Scratch)",
-      "author": "Sebastian Raschka"
+      "author": "Sebastian Raschka",
+      "rating": 5
     },
     {
       "year": 2017,
       "title": "Designing Data-Intensive Applications",
-      "author": "Martin Kleppmann"
+      "author": "Martin Kleppmann",
+      "rating": 5
     },
     {
       "year": 1999,
       "title": "The Pragmatic Programmer",
-      "author": "Andrew Hunt & David Thomas"
+      "author": "Andrew Hunt & David Thomas",
+      "rating": 5
+    },
+    {
+      "title": "Object-Oriented Python",
+      "author": "Irv Kalb",
+      "year": 2022,
+      "rating": 5
+    },
+    {
+      "title": "Software Architecture Patterns",
+      "author": "Mark Richards",
+      "year": 2015,
+      "rating": 4
     }
   ],
   "nonTechnicalBooks": [
     {
       "year": 2018,
       "title": "Los asquerosos",
-      "author": "Santiago Lorenzo"
+      "author": "Santiago Lorenzo",
+      "rating": 5,
+      "category": "prose",
+      "genre": "Novel"
     },
     {
       "year": 1982,
-      "title": "Diaries to Nowhere · Diarios a ninguna parte · 萬水千山走遍",
-      "author": "Sanmao (三毛)"
+      "title": "Diaries to Nowhere · Diarios a ninguna parte",
+      "author": "Sanmao (三毛)",
+      "rating": 3,
+      "category": "prose",
+      "genre": "Memoir"
     },
     {
       "year": 1981,
       "title": "Crónica de una muerte anunciada",
-      "author": "Gabriel García Márquez"
+      "author": "Gabriel García Márquez",
+      "rating": 5,
+      "category": "prose",
+      "genre": "Novel"
     },
     {
       "year": 1977,
-      "title": "Stories of the Canary Islands · Diario de las Canarias · 稻草人手記",
-      "author": "Sanmao (三毛)"
+      "title": "Stories of the Canary Islands · Diario de las Canarias",
+      "author": "Sanmao (三毛)",
+      "rating": 4,
+      "category": "prose",
+      "genre": "Memoir"
     },
     {
       "year": 1976,
-      "title": "Stories of the Sahara · Diarios del Sáhara · 撒哈拉的故事",
-      "author": "Sanmao (三毛)"
+      "title": "Stories of the Sahara · Diarios del Sáhara",
+      "author": "Sanmao (三毛)",
+      "rating": 5,
+      "category": "prose",
+      "genre": "Memoir"
     },
     {
       "year": 1928,
       "title": "Romancero gitano",
-      "author": "Federico García Lorca"
+      "author": "Federico García Lorca",
+      "rating": 5,
+      "category": "poetry",
+      "genre": "Poetry"
     },
     {
       "year": 1924,
       "title": "Veinte poemas de amor y una canción desesperada",
-      "author": "Pablo Neruda"
+      "author": "Pablo Neruda",
+      "rating": 5,
+      "category": "poetry",
+      "genre": "Poetry"
+    },
+    {
+      "title": "La Ilustre Fregona",
+      "author": "Miguel de Cervantes",
+      "rating": 4,
+      "year": 1613,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "Búnker: Memorias de encierro, rimas y tiburones blanco",
+      "author": "Toteking",
+      "rating": 3,
+      "year": 2020,
+      "category": "prose",
+      "genre": "Memoir"
+    },
+    {
+      "title": "Erections, Ejaculations, Exhibitions and General Tales of Ordinary Madness",
+      "author": "Charles Bukowski",
+      "rating": 4,
+      "year": 1972,
+      "category": "prose",
+      "genre": "Short stories"
+    },
+    {
+      "title": "San Manuel Bueno, mártir",
+      "author": "Miguel de Unamuno",
+      "rating": 4,
+      "year": 1931,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "La vida de Lazarillo de Tormes",
+      "author": "Lazarillo de Tormes",
+      "rating": 5,
+      "year": 1554,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "La vida es sueño",
+      "author": "Calderón de la Barca",
+      "rating": 5,
+      "year": 1636,
+      "category": "prose",
+      "genre": "Theatre"
+    },
+    {
+      "title": "Azul; Cantos de vida y esperanza",
+      "author": "Rubén Darío",
+      "rating": 3,
+      "year": 1905,
+      "category": "poetry",
+      "genre": "Poetry",
+      "yearLabel": "1888 / 1905"
+    },
+    {
+      "title": "Poet in New York",
+      "author": "Federico García Lorca",
+      "rating": 5,
+      "year": 1940,
+      "category": "poetry",
+      "genre": "Poetry"
+    },
+    {
+      "title": "The Little Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "rating": 2,
+      "year": 1943,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "Do Androids Dream of Electric Sheep?",
+      "author": "Philip K. Dick",
+      "rating": 4,
+      "year": 1968,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "Patria",
+      "author": "Fernando Aramburu",
+      "rating": 4,
+      "year": 2016,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "Fall of Giants (The Century Trilogy, #1)",
+      "author": "Ken Follett",
+      "rating": 3,
+      "year": 2010,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "El Alquimista",
+      "author": "Paulo Coelho",
+      "rating": 1,
+      "year": 1988,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "Mortal y rosa",
+      "author": "Francisco Umbral",
+      "rating": 4,
+      "year": 1975,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "En el camino",
+      "author": "Jack Kerouac",
+      "rating": 4,
+      "year": 1957,
+      "category": "prose",
+      "genre": "Novel"
+    },
+    {
+      "title": "Tropic of Capricorn",
+      "author": "Henry Miller",
+      "rating": 4,
+      "year": 1939,
+      "category": "prose",
+      "genre": "Novel"
     }
   ]
 }

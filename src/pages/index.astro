@@ -18,7 +18,7 @@ const { hero, coffeeChat, engineeringFocus } = homeData;
 			<img class="hero-photo" src="/assets/pablo-portrait.jpg" alt="Pablo" width="150" height="150" />
 		</div>
 		
-		<details style="max-width: 650px; margin-bottom: 1.5rem;">
+		<details class="engineering-details" style="max-width: 650px; margin-bottom: 1.5rem;">
 			<summary style="cursor: pointer;">More about my engineering work</summary>
 			<div style="margin-top: 1rem;">
 				<p class="text-secondary mb-4" set:html={engineeringFocus.lead} />
@@ -48,14 +48,14 @@ const { hero, coffeeChat, engineeringFocus } = homeData;
 	</section>
 
 	<!-- SAY HI / COFFEE CHAT -->
-	<div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+	<div style="max-width: 680px; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
 		<div class="mb-6" style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); max-width: 650px;">
 			<h3 class="mb-3">{coffeeChat.title}</h3>
 			<p class="mb-3 text-secondary" style="font-size: 0.95rem; line-height: 1.65;">
 				{coffeeChat.description}
 			</p>
 			<p class="mb-4 text-secondary" style="font-size: 0.95rem; line-height: 1.65;" set:html={coffeeChat.mentorship} />
-			<div class="flex flex-wrap gap-4 font-mono text-sm" style="margin-top: 1.5rem;">
+			<div class="flex flex-wrap gap-4 text-sm" style="margin-top: 1.5rem;">
 				{coffeeChat.bookingLinks.map(b => (
 					<a href={b.url} target="_blank" rel="noopener noreferrer" class="list-item" style="padding: 0.65rem 1.25rem; text-decoration: none;">
 						{b.label}
@@ -87,10 +87,10 @@ const { hero, coffeeChat, engineeringFocus } = homeData;
 	}
 
 	.hero-name {
-		font-size: 2rem;
+		font-size: 1.8rem;
 		font-weight: 700;
 		letter-spacing: -0.02em;
-		margin-bottom: 0.75rem;
+		margin-bottom: 1.15rem;
 		color: var(--text-primary);
 	}
 
@@ -101,6 +101,8 @@ const { hero, coffeeChat, engineeringFocus } = homeData;
 		margin-bottom: 0;
 		color: var(--text-secondary);
 	}
+
+	.engineering-details summary { font-size: 0.95rem; }
 
 	.hero-intro :global(strong) {
 		color: var(--text-primary);
@@ -168,7 +170,7 @@ const { hero, coffeeChat, engineeringFocus } = homeData;
 		.hero-photo { width: 80px; height: 80px; flex-basis: 80px; }
 
 		.hero-name {
-			font-size: 1.65rem;
+			font-size: 1.55rem;
 		}
 
 		.hero-intro {
